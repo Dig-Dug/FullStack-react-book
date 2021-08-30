@@ -48,12 +48,13 @@ class ProductList extends React.Component {
     );
   }
 }
-
+//no need for manual binding or constructor. With custom components
+//use arrow functions
 class Product extends React.Component {
   handleUpVote = () => (
     this.props.onVote(this.props.id)
   );
-
+//render is method class
   render() {
     return (
       <div className='item'>

@@ -1,8 +1,14 @@
 class ProductList extends React.Component {
   state = {
+    //empty this.state.products Array
     products: [],
   };
-
+  /*setState is asynchronous-no guarantee when react will update. Don´t
+  modify/mutate with "this.state" , with arrays "concat" method is
+  prefered, cos it does not affect original data- treat state object
+  as immutable - check app-9 */
+  //using setState() to seed component´s state
+  //component will re-render
   componentDidMount() {
     this.setState({ products: Seed.products });
   }
