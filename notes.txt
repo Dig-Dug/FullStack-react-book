@@ -1,0 +1,139 @@
+create project: npx create-react-app "name"
+start project: npm run start
+
+***************CHAPTER 1 **********************************
+Babel transpiler trnaslates Es6 to Es5
+in script js type = "text/babel
+babel = JSX & Es6 into vanilla ES5 
+
+ReactDom.render([what], [where to render it])
+React components always start witu uppercase <ProductList/>
+Rc´s can render other Rc´s
+
+never modify state outside "this.setState()"
+
+°°props :are state´s immutable accomplice, one-way data pipeline
+°°components: managed in parents passed down through children as props
+°°rendering: if state is updated, components re render.
+°°State object can´t be updated directly it needs setState().
+
+-organize React apps as components
+-using JSX inside render method
+-data flows from parent to children through props
+-Event flows from children to parent through functions
+-React lifecycle methods
+-stateful components, and how to state is different from props
+-manipulate state while treating it as immutable
+
+***************CHAPTER 2 **********************************
+run: npm run babel-version
+
+client.js and helpers.js contains helper functions for components to use
+ 
+COMPONENTS COMPOSITION--
+
+components = timer and timerList
+components = only responsible for one piece of functionality-
+timerList = just list timers and nest them under a parent component
+parent component = TimersDashboard(communicates with server)
+TimersDashboard <- whatever is muttable here, will be immutable passed
+                   as props  to EditableTimerList.
+
+ToggleableTimerForm (child): renders "timerForm"(child) -> "+"
+based on stateful data.
+the "+" widget when clicked transforms into a form, when closed
+into a "+".
+EditableTimer(child) 
+
+***What should be stateful(mutable)?
+.ToggleableTimerForm = boolean isOpen <- stateful
+.EditableTimerList = timer props <- state owner
+.EditableTimer = prop editFormOpen  
+.Timer = props timer <- no stateful(no stateful. Data passed from parent)
+.timerForm = "title & project" initialize when editing timer
+.editFormOpen <- stateful (data defined here and changing/not defined form other state or prop)
+
+
+**State criteria
+data passed via props- isn´t state
+data changing - is state
+data present based on other state or props - isn´t state
+
+**On which component adding state???
+-identyfy component rendering by state
+-find hierarchy and state owning
+-if no find, create component holding state and add in hierarchy
+
+
+**visibility of the create form
+-timer <- owned and managed by TimersDashboard
+-EditableTimer <- manages state of timer(edit form)
+-ToggleableTimerForm <- manages state of its form visibility
+
+**adding state to TimersDashboard(app-2.js)
+**adding state to EditableTimer(app-2.js)
+  Timer <- stateless
+**adding state to ToggleableTimerForm(app-2.js)
+**adding state to timerForm(in React forms are statefulapp-2.js)
+
+
+
+__-Add inverse data flow(app-3.js)------
+-timerForm(2 events => create{ToggleableTimerForm(app-3.js)} && 
+                       update{EditableTimer(app-3.js)})
+-timer = .delete .edit .start .stop;
+
+
+-timerForm(app-3.js) => props.onFormSubmit() && 
+              props.onFormClose()     
+
+-TimersDashboard(topHierarchy){
+    handling(timersData && events(2));
+}
+  event(formSubmission)? -new Timer : -update Timer;
+        -new <- handleCreateFormSubmit(ToggleableTimerForm(app-3.js))
+        -update <- handleEditFormSubmit(EditableTimerList(app-3.js))
+
+
+
+
+__Updating timers(app-4.js);
+__Deleting timers(app-5.js) { //check class Timer
+        .trashButton.wiring()
+        .start stop buttons.time()}
+
+
+__Adding Timing functionality(CRUD) app-6.js  check : class Timer
+*prop "runningSince" <- tracks timer after app closing
+* rest of "start" time and runningSince <- renders actual user´s time.
+*"stop" rest result and current time added to "elapsed.runningSince to null
+* React re-rendering(using forceUpdate()) timers always(not elapsed or 
+runningSince will no change while timer is running)
+
+
+
+__Add start stop functionality app-7.js check class Timer.
+*buttons(better in their own component) 
+   ->display "stop & start",event clicking propagation.
+  * events depending on timer go up till TimersDashboard(runningSince 
+    timer modification).
+
+__create TimerActionButton app-7.js class TimerActionButton
+
+
+
+__classes EditableTimer & EditableTimerList running Events app-7.js
+these classes are defined in class TimersDashboard, use map and set "runningSince"
+when matching timer is found.
+
+goTo notes2.txt
+
+
+
+
+
+
+
+https://reactjs.org/docs/thinking-in-react.html
+
+

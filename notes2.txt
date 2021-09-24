@@ -1,0 +1,87 @@
+
+data.json  <- keeps data persistance allowing server update from app
+index.js(node.js server) <-uses data.json(which server uses to store updates)
+
+
+TimersDashboard <-responsible for keeping state not the server.
+                timer(creation,updating,deletion,start,stop)
+
+server <- request timers
+        request localhost.
+        returns html.index(loading react.js(only communicates json))
+
+JSON endpoints check server.js  
+        give "http://localhost:3000/api/timers" to see all timers
+
+
+__Loading state from the server app-8.js ..getTimers()
+
+__Sending starts and stops to the server app-9.js..startTimer() & stopTimer()
+  *optimistc updating= locally client updating before the server(testing but dou
+  -ble effort)
+
+__Sending crud to the server .. app-complete.js
+
+
+
+
+
+
+
+
+
+
+
+*******************JSX(js syntax extension) and Virtual DOM(API)'''''''''''''''''''''''''''
+*write own tags!!
+*JSX == js(compiled(transpile(Babel)))
+
+react(ownDomRepresentation(Virtual) != browserDom){
+        dev.manipulate(Virtual) = react.browserDom(manipulate);
+}
+DOM = querySelector && getElementById;
+DOM == !keepingTrack && slow;
+
+Virtual DOM != DOM; VirtualDOM == simulation(ReactElement(DomRepresentation));
+
+
+*open jsx/basic/index.html <- inspector
+in console type = -var boldElement = React.createElement('b');
+                  -boldElement
+
+boldElement <-exists as a ghost(emptyElement) 
+
+in console type = var mountElement = document.getElementById('root');
+in console type =  var mountElement = document.querySelector('#root');
+in console type = ReactDOM.render(boldElement, mountElement);
+
+AddingText(with children)________ smallComponent? doIt : donT; _____________________
+
+React.createElement(DomElementType, props, children(OfElement))
+ 
+ * children(OfElement) == ReactNode(ReactElement, string||number, [ReactNodes]);
+bsp in console:
+
+  var mountElement = document.querySelector('#root');
+  var boldElement = React.createElement('b', null, "Text (as a string)");
+  ReactDOM.render(boldElement, mountElement);
+
+ReactDOM.render <- thirdArgumentOptional(function(){})
+
+
+JSX createElement()______________________________
+
+var boldElement = <b>Text (as a string) </b>;  <- ReactElement
+bsp: const Element = <div>HELLO </div>; //upperCase(accepted)
+
+const Message = prop => (<div>{props.text}</div>))
+const ReactComponent = (Message text= "HELLO"/>);
+
+JSX Attribute Expressions______________________________
+
+const warningLevel = 'debug';
+const component = (<Alert
+                   color={war === 'debug' ? 'grey' : 'red'}
+                   log={true} />)
+
+pg 153
