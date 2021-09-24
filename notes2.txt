@@ -33,6 +33,8 @@ __Sending crud to the server .. app-complete.js
 
 
 *******************JSX(js syntax extension) and Virtual DOM(API)'''''''''''''''''''''''''''
+
+
 *write own tags!!
 *JSX == js(compiled(transpile(Babel)))
 
@@ -55,9 +57,14 @@ in console type = var mountElement = document.getElementById('root');
 in console type =  var mountElement = document.querySelector('#root');
 in console type = ReactDOM.render(boldElement, mountElement);
 
+
+
+
 AddingText(with children)________ smallComponent? doIt : donT; _____________________
 
-React.createElement(DomElementType, props, children(OfElement))
+
+
+React.createElement(DomElementType, props, children(OfElement)) <--immutable though
  
  * children(OfElement) == ReactNode(ReactElement, string||number, [ReactNodes]);
 bsp in console:
@@ -67,6 +74,9 @@ bsp in console:
   ReactDOM.render(boldElement, mountElement);
 
 ReactDOM.render <- thirdArgumentOptional(function(){})
+
+
+
 
 
 JSX createElement()______________________________
@@ -84,4 +94,64 @@ const component = (<Alert
                    color={war === 'debug' ? 'grey' : 'red'}
                    log={true} />)
 
-pg 153
+
+JSX conditionalChildExpressions______________________________
+
+
+bsp:
+const renderAdminMenu = function(){
+        return(<MenuLink to="/users>User Accounts</MenuLink>)
+}
+const userLebel = this.props.userLebel;
+return( 
+        <ul>
+        <li>Menu</li>
+        {userLebel === 'admin' && renderAdminMenu()}
+        </ul>
+)
+
+bsp:
+
+const Menu = (<ul>{loggedInUser ? <userMenu /> : <LoginLink />}</ul>)
+bsp
+
+
+
+JSX booleanAttributes__________________________________________
+ bsp:
+
+ <input name='Name' disabled={true} />   or js variableWay
+ var formDisabled = true; 
+ <input name='Name' disabled={formDisabled}/>
+
+ JSX Comments {/* */}
+
+JSX spread syntax(...):______________________________
+bsp:  //object with 2 keys
+    const props = {msg: "Hello", recipent: "World"}
+      //pass props individually
+<Component msg = {"Hello"} recipent={"World"} />
+  //in use
+
+<Component {...props} /> 
+
+JSX Gotchas_________________________
+no class="" instead className="" for CSS(npm package classnames)
+bsp:
+var cssNames = ['one','two']
+(<div className={cssNames.join(' ')}></div>)  //joining the array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pg 170
