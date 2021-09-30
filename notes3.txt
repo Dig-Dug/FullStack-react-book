@@ -64,9 +64,44 @@ Context_(experimental)______________________________________________________
 //child.getContext(use.contextTypes)  <- check jpeg
 
 
-STATE______________________________________________________________
+STATE___(tooMany == complexity)__&& isAsynchronous()_________________________________________________________
+    let stateful == localData(mutable); <- check jpegs
+   if( setState == expensive(render.refresh)){
+       divide(setState(inFunctions()));
+   }
+   css? <-check wevpack loader
+
+
+stateful components_________________________________________________
+//good practice: isPossible == setState? class || constructor <- check jpeg 
+  promise use.constructor(once) == runs(once) 
+            .then {Component.mount} 
+
+
+State updates that depend on the current state________________________-------______________________________
+  isCurrentState? pass.function() || notPreferable
+
+Stateless Component____//minimaze stateful && performance________________________________________________
+        - no "this", is null, no Dom reference
+        - yes propTypes && defaultProps
+
+    switching from stateful to Stateless  <- check jpeg
+
+props.children___________________________________****************
+            <- check jpegs
+    helper methods (map() & forEach()) if(required){ 
+                 React.Children.toArray(this.props.children);
+    }
+
+
+           https://reactjs.org/docs/react-api.html
+           https://reactjs.org/docs/react-component.html
 
 
 
 
-pg 170
+**************FORMS*******************************************
+
+
+
+pg 202
