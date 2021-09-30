@@ -1,0 +1,107 @@
+****Advanced Component Configuration with (props,state,children)******
+
+Instrucctions:
+    -cd advanced-components/cd components-cookbook
+    -npm install
+    -npm start  goto localhost:3000
+
+
+
+ReactComponent________2 Ways________
+
+a.  const App = React.createClass({render!!!: function(){}}) 
+    bsp.
+        render: function(){return(<h1>Yellow</h1>)}  <-virtualRepresentation
+
+
+b.  class App extends React.Component{render!!!(){}}
+    bsp.
+        render(){return(<h1>Yellow</h1>)}  <-virtualRepresentation
+
+
+Render returns ReactElement Tree___________________
+
+render = virtualRepresentation(Dom native(Component))
+
+
+Getting Data into render()______________________________
+props= immutable, state != immutable 
+--parent.pass(props).to(children)
+--holdData.local(state).to(Component)
+
+Props  (props,props)_______________Parameters_________
+passData.Component == this.props
+
+    bsp.
+    . <div><Header *headerText*="YOlo"/></div>
+    . render(){return(<h1>{***this.props.headerText***}</h1>)}
+
+// class using props.headerText(can´t change it) only passing it to childen
+   . Component.pass(props).to(children)
+
+
+   PropTypes_____________in package.json______________________________
+   .string,number,boolean
+   .function,object,array,arrayOf,node,element
+
+
+Default props with getDefaultProps:________________________________
+  bsp.(in class):
+        -static defaultProps = {initialValue: 1}
+        -<Counter initialValue={1}/>
+
+
+
+Context_(experimental)______________________________________________________
+    pass(prop(**Global**==Component.to(Component))) == mutable(Global);
+ 
+ define(Context){ parentClass.owns(childContextTypes & getChildContext)};
+
+//parent.passContext(static.-**childContextTypes**) <- check jpeg
+   -childContextTypes = !populate(justRepresent);
+   -getChildContext(valueSetting(functionReturning)); <- check jpeg
+
+//child.getContext(use.contextTypes)  <- check jpeg
+
+
+STATE___(tooMany == complexity)__&& isAsynchronous()_________________________________________________________
+    let stateful == localData(mutable); <- check jpegs
+   if( setState == expensive(render.refresh)){
+       divide(setState(inFunctions()));
+   }
+   css? <-check wevpack loader
+
+
+stateful components_________________________________________________
+//good practice: isPossible == setState? class || constructor <- check jpeg 
+  promise use.constructor(once) == runs(once) 
+            .then {Component.mount} 
+
+
+State updates that depend on the current state________________________-------______________________________
+  isCurrentState? pass.function() || notPreferable
+
+Stateless Component____//minimaze stateful && performance________________________________________________
+        - no "this", is null, no Dom reference
+        - yes propTypes && defaultProps
+
+    switching from stateful to Stateless  <- check jpeg
+
+props.children___________________________________****************
+            <- check jpegs
+    helper methods (map() & forEach()) if(required){ 
+                 React.Children.toArray(this.props.children);
+    }
+
+
+           https://reactjs.org/docs/react-api.html
+           https://reactjs.org/docs/react-component.html
+
+
+
+
+**************FORMS*******************************************
+
+
+
+pg 202
