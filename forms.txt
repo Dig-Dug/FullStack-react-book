@@ -43,7 +43,22 @@ Remote Data________09-async-fetch //09-course-select.js_____________
      - add it to render()
 
 -Separation of view and State json, url DB how to store it`?
+
+
 -Async Persistence no losing data(saving ,loading ,error)
+  10-remote-persist.js 
+
+
+REDUX_______for larger app______11-redux-reducer.js__
+adapting component to fit Redux.
+Redux <- centralization of state
+
+11-redux-actions.js
+
+FORM COMPONENT
+
+
+pg 255
 
 
 
@@ -51,6 +66,16 @@ Remote Data________09-async-fetch //09-course-select.js_____________
 
 
 
-.pg 244
+
+
+
+
+
+
+
+
+
+
+
 
 
