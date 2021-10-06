@@ -1,0 +1,56 @@
+check forms folder/src/...
+
+SyntheticMouseEvent
+02-basic-button.js (defining one eventhandler for 2 different actions)
+
+Text Input:::::::::
+reading content of text filed submits--find text in Dom, grab value
+ref <- 03-basic-input.js
+
+
+Using User Input________
+showing list on submits populating array
+04-basic-input.js
+
+Uncontrolled cvs Controlled Components_______05-state input.js
+   -example before was Uncontrolled
+Accessing user input with state
+        .place in state to store calue
+            . location in state--value prop
+              . onChange handler to update value in state
+
+Multiple Fields____________06-state-input-multi.js_____________
+   adding as many input felds with minimal changes
+
+
+
+On Validation_______07-basic-validation.js_________________
+
+.store errors and adding it to the rendering
+.validate method to handle fields object adding them to state
+
+Creating field Component__________08-basic-validation.(field & form)___________
+-adding error recognition to each field. leaving parent free.
+create new Field component(child input)
+
+Remote Data________09-async-fetch //09-course-select.js_____________
+- build custom component <- allows user to select.
+      -props to communicate with parent form component?
+         .onChange()
+      -setting state(one for department one for course)
+
+- adding courseSelect
+     - add it to render()
+
+-Separation of view and State json, url DB how to store it`?
+-Async Persistence no losing data(saving ,loading ,error)
+
+
+
+
+
+
+
+.pg 244
+
+
