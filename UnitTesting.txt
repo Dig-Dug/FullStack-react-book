@@ -76,6 +76,31 @@ Simulating a form submission_________________ App.test.complete-6.js
 
 
 Writing tests for the food lookup app_________pg 351
+cd food-lookup-complete
+npm i, cd client, npm i, cd .., npm start---kill the app go back to client
+
+check tests folder in client
+for references check complete folder.
+
+cd client/src/FoodSearch.js
+
+cd client/tests/FoodSearch.test.js or complete/complete-1.js
+
+complete-2.js <- simulating user typing
+
+Mocking with Jest---______________________
+module testing <- A double faking a module part.
+
+const myMock = jest.fn(); mocks keep track of invocations(length)
+console.log(myMock.mock.calls); []
+mock generator for entire modules: jest.mock('../src/Client')
+    .this new mock of client will be used everywhere in app.
+
+Mocking Client__________________________________
+cd complete/FoodSearch.test.complete-3.js 
+
+pg 370
+
 
 
 

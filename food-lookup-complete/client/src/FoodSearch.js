@@ -2,6 +2,7 @@
 import React from 'react';
 import Client from './Client';
 
+//max number of search results, scroll to input
 const MATCHING_ITEM_LIMIT = 25;
 
 class FoodSearch extends React.Component {
@@ -10,32 +11,35 @@ class FoodSearch extends React.Component {
     showRemoveIcon: false,
     searchValue: '',
   };
-
+//value comes from event object(searchValue in input)
   onSearchChange = (e) => {
     const value = e.target.value;
 
     this.setState({
       searchValue: value,
     });
-
+//if blank value, blank array
     if (value === '') {
       this.setState({
         foods: [],
+    //no icon removal(x)
         showRemoveIcon: false,
       });
     } else {
+  //if not, icon removed, call server with list
       this.setState({
         showRemoveIcon: true,
       });
-
+//Client.search requests array of matching foods-scroll in render(onClick)
       Client.search(value, (foods) => {
         this.setState({
+//no matching items
           foods: foods.slice(0, MATCHING_ITEM_LIMIT),
         });
       });
     }
   };
-
+//reset everything
   onRemoveIconClick = () => {
     this.setState({
       foods: [],
@@ -43,7 +47,8 @@ class FoodSearch extends React.Component {
       searchValue: '',
     });
   };
-
+//check <tbody>. User clicks food item and is added to list
+//prop function onFoodClick() specified in parent (App)
   render() {
     return (
       <div id='food-search'>
@@ -53,7 +58,7 @@ class FoodSearch extends React.Component {
               <th colSpan='5'>
                 <div className='ui fluid search'>
                   <div className='ui icon input'>
-                    <input
+                   <input
                       className='prompt'
                       type='text'
                       placeholder='Search foods...'

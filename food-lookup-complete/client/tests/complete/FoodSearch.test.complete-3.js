@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import FoodSearch from '../src/FoodSearch';
 import Client from '../src/Client';
-
+//jest mocking client
 jest.mock('../src/Client');
 
 describe('FoodSearch', () => {
@@ -29,7 +29,8 @@ describe('FoodSearch', () => {
 
   describe('user populates search field', () => {
     const value = 'brocc';
-
+//this triggers call to Client.search() in FoodSearch.js
+//calls method that jest created...
     beforeEach(() => {
       const input = wrapper.find('input').first();
       input.simulate('change', {
@@ -42,13 +43,13 @@ describe('FoodSearch', () => {
         wrapper.state().searchValue
       ).toEqual(value);
     });
-
+//assertion
     it('should display the remove icon', () => {
       expect(
         wrapper.find('.remove.icon').length
       ).toBe(1);
     });
-
+//calling mock.calls propety
     it('...todo...', () => {
       const firstInvocation = Client.search.mock.calls[0];
       console.log('First invocation:');

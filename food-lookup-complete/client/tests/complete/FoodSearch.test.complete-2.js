@@ -4,6 +4,7 @@ import React from 'react';
 import FoodSearch from '../src/FoodSearch';
 
 describe('FoodSearch', () => {
+
   let wrapper;
 
   beforeEach(() => {
@@ -25,6 +26,7 @@ describe('FoodSearch', () => {
   });
 
   describe('user populates search field', () => {
+//value at the top for future reference
     const value = 'brocc';
 
     beforeEach(() => {
@@ -33,13 +35,13 @@ describe('FoodSearch', () => {
         target: { value: value },
       });
     });
-
+//searchValue  has been updated in state to match new value
     it('should update state property `searchValue`', () => {
       expect(
         wrapper.state().searchValue
       ).toEqual(value);
     });
-
+//icon removal present on the DOM
     it('should display the remove icon', () => {
       expect(
         wrapper.find('.remove.icon').length
