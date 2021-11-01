@@ -8,14 +8,17 @@ const CourseSelect = require('./09-course-select.js');
 module.exports = class extends React.Component {
   static displayName = "11-redux-form";
 
+  //setup proptypes to align data received from redux
   static propTypes = {
     people: PropTypes.array.isRequired,
     isLoading: PropTypes.bool.isRequired,
+    //in render readonly
     saveStatus: PropTypes.string.isRequired,
     fields: PropTypes.object,
+  //onSubmit new field to avoid calling API
     onSubmit: PropTypes.func.isRequired,
   };
-
+//removal of _Loading and _saving they will be used later as props
   state = {
     fields: this.props.fields || {
       name: '',
@@ -25,20 +28,20 @@ module.exports = class extends React.Component {
     },
     fieldErrors: {},
   };
-
+// in case of field objects coming as props
   componentWillReceiveProps(update) {
     console.log('this.props.fields', this.props.fields, update);
 
     this.setState({ fields: update.fields });
   }
-
+//API calling function removed (componentWillMount)
   onFormSubmit = (evt) => {
     const person = this.state.fields;
 
     evt.preventDefault();
 
     if (this.validate()) return;
-
+//replace of componentWillMount
     this.props.onSubmit([ ...this.props.people, person ]);
   };
 
@@ -65,7 +68,8 @@ module.exports = class extends React.Component {
 
     return false;
   };
-
+//replacement of _loading, _saving and state.people with
+//counterparts on props
   render() {
     if (this.props.isLoading) {
       return <img alt='loading' src='/img/loading.gif' />;
@@ -73,6 +77,7 @@ module.exports = class extends React.Component {
 
     const dirty = Object.keys(this.state.fields).length;
     let status = this.props.saveStatus;
+    //if has any keys, user entered data
     if (status === 'SUCCESS' && dirty) status = 'READY';
 
     return (

@@ -1,0 +1,85 @@
+Unit Testing pg 303___________________
+
+writing tests without a framework:::::::
+ cd Testing/basics
+ npm install 
+
+write library to test. Preparing modash______
+1 check Modash.js 
+2 check /Modash.test.js
+
+run the test!!!
+in cmd: ./node_modules/.bin/babel-node Modash.test.js
+        -> [PASS] `truncate()`.
+
+in complete are all examples found as comments in Modash.test.js
+
+
+What is jest? <- testing framework
+
+.testing libraries 3 main components:
+  -test runner(cmd running console)
+  -domain specific language for test organization(functions
+  to exec common tasks)
+  -Assertion library(checking elements and equality)
+
+check package.json for jest dependency
+  -files with .test or .spec.js means they are tests
+
+expect(true).toBe(true)
+  .toBe is a matcher(==)
+bsp:  expect(1).toBe(1) //pass
+      const a = 5;
+      expect(a).toBe(5) //pass
+toBe(boolean or numeric)
+toEqual(everything else || everything)
+ 
+modash.test-3.js
+cd \testing\basics:
+  running "npm test" allowed from package.json
+
+modash.tests 4 and 5,6
+
+INTEGRATION TEST VS UNIT TEST____________________
+integration: all modules together(end to end when apis involved)
+unit: test in isolation(rendering of state and props, module output
+component behaviour, faster cos DOM avoiding)
+
+Shallow Rendering___________________________
+not writing to DOM in rendering, maintain virtual DOM representation
+rendering one level deep, not children rendering only references.
+Enzyme <- react shallow render component:
+    const wrapper = Enzyme.shallow(<App/>);
+
+cd testing/react-basics, npm i, npm start
+
+goTo srt/App.js
+
+Jest and Enzyme(in package.json). npm test.
+"Jest in watch mode" <- constant updating and re-testing
+
+cd react-basics/src/complete/App.test.complete-1.js <- check imports
+
+goTo : App.test.complete-2.js
+
+Using beforeEach____________________
+fresh context rendering between each "it"(spec) and avoiding
+state leaking. goTo App.test.complete-3.js
+
+
+Simulating Change______________________
+                   App.test.complete-4.js, 5.js <-3 layers deep of "describe"
+
+
+
+Simulating a form submission_________________ App.test.complete-6.js
+
+
+Writing tests for the food lookup app_________pg 351
+
+
+
+
+
+
+

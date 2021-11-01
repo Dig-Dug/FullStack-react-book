@@ -55,10 +55,16 @@ Redux <- centralization of state
 
 11-redux-actions.js
 
-FORM COMPONENT
+FORM COMPONENT:___________from state to props___11-redux-form.js
 
 
-pg 255
+
+Connect the store____________11-redux-app.js______________________
+
+form modules___________handling external modules page 261_____
+
+
+
 
 
 

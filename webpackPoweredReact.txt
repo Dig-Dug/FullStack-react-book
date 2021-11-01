@@ -1,0 +1,78 @@
+Exploring Create React App._______________
+
+.npm i -g create-react-app
+
+  cd webpack, cd heart-webpack-complete:
+    .index.html has no scripts!
+    .package.json few dependencies!
+     -react-scripts(helper)
+     -react And react-dom(not in index tags anymore)
+    .package.json scripts field
+        start,build(for production),test(if any),eject(
+            enables config that react-scripts provides.
+        )
+    .eject: copies all scripts and configs <- pg 287
+
+  cd src/app.js
+  cd src/index.js <- DOM component
+
+Botting the app_____________________
+    npm start...add scripts to html´s bottom
+        .bundle.js will be used by reactDOM.render and app.js
+        .bundle.js <- port 3000
+
+webpack basics_________________________
+    *voting app use of http rerver library
+    *timers app server.js provided enpoints to Api connectivity
+    *Here npm start make use of bundle.js which runs from memory
+    not disk. Bundle.js <- whole react library(speeeedddddd!!!!)
+        .localhost:3000/static/js/bundle.js
+        .css, npm and images running as modules in bundle.js
+
+Modifying sample app______hot & auto reloading plugins_____________
+hot reloading--make small change browser shows it.
+
+Creating a production build_______________pg283
+    -writing bundle to disk.
+      -"npm run build" <-new folder(cd build(too heavy might
+      crash editor!!!))
+      -index.html <-instead of bundle now "static/main
+
+***************************************************************
+
+Using create react app with an api server__________
+  cd food-lookup  pg 289
+    .client folder auto generated(create react app)
+    .2 package.json files
+run it: 1-) npm i, cd client npm i, cd .. 
+        2-) npm start   -dont work
+run it: in food-lookup npm i, cd client, npm i, cd.. , 
+npm run server          -dont work
+
+Client________client/src/Client.js  
+  localhost 3000 and 3001 needed, how?
+
+Concurrenly__________food-lookup/package.json <- "3.1.0"
+     .needed for calling API server and webpack server
+RUN IT!!!!!!! : babel-node start-server.js dont work..
+in package.json add to scripts:
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "babel-node start-server.js",
+    "client": "babel-node start-client.js"
+      then npm start!!! but CORS gives errors :( 
+
+Using webpack development PROXY________________________
+    go to : food-lookup/client/src/Client.js 
+    add to client´s package.json: 
+        "proxy": "http://localhost:3001"
+
+!!!!no CORS errors.."proxy" <- Api requests to 3001
+
+webpack at large_______________________________
+  optimization: fewer scripts more bundles provide only
+   necessary stuff
+  tooling: production , hot auto running-
+
+when to use webpack/create react app?????
+babel for small. webpack if necessary scalable.
+
