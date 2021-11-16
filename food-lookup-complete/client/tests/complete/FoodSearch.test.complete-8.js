@@ -125,7 +125,7 @@ describe('FoodSearch', () => {
           ).toEqual([ food ]);
         });
       });
-
+//first beforeEach simulates user input of `x <- broccx
       describe('then user types more', () => {
         const value = 'broccx';
 
@@ -135,7 +135,9 @@ describe('FoodSearch', () => {
             target: { value: value },
           });
         });
-
+//next : simulate client.search() yielding a blank array
+//before reaching this block user already changed input. d.H
+//Client.search() is called twice. Use a blank array
         describe('and API returns no results', () => {
           beforeEach(() => {
             const secondInvocationArgs = Client.search.mock.calls[1];
@@ -143,7 +145,7 @@ describe('FoodSearch', () => {
             cb([]);
             wrapper.update();
           });
-
+//assert that the array is empty
           it('should set the state property `foods`', () => {
             expect(
               wrapper.state().foods

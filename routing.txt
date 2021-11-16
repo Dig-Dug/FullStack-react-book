@@ -1,3 +1,19 @@
+What´s an URL?
+
+url <- external keeper of state
+1.Modify location of app(url)   
+2.Specify which React component to render at a given location
+
+React Router´s core components________________
+* Links and Redirect! <- React Components 
+* Determine where to render <- Route and Switch
+
+Building the Components of react-router______________
+Building route_____________________________    
+cd basics/src/App.js
 
 
-pg 392
+
+
+
+pg 397
