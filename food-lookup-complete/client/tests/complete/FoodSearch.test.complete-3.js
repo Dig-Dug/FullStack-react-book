@@ -49,7 +49,7 @@ describe('FoodSearch', () => {
         wrapper.find('.remove.icon').length
       ).toBe(1);
     });
-//calling mock.calls propety
+//calling mock.calls property
     it('...todo...', () => {
       const firstInvocation = Client.search.mock.calls[0];
       console.log('First invocation:');

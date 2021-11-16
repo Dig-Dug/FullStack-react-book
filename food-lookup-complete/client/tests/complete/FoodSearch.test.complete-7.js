@@ -9,7 +9,8 @@ jest.mock('../src/Client');
 describe('FoodSearch', () => {
   let wrapper;
   const onFoodClick = jest.fn();
-
+//onFoodClick(from FoodSearch.js) 
+//inside shallow render to mock function as a prop
   beforeEach(() => {
     wrapper = shallow(
       <FoodSearch
@@ -17,7 +18,7 @@ describe('FoodSearch', () => {
       />
     );
   });
-
+//good practice clearing mock between spec running
   afterEach(() => {
     Client.search.mockClear();
     onFoodClick.mockClear();
@@ -34,11 +35,13 @@ describe('FoodSearch', () => {
       wrapper.find('tbody tr').length
     ).toEqual(0);
   });
-
+//set describers
+//each before block simulates a click on foof item in table
   describe('user populates search field', () => {
     const value = 'brocc';
 
     beforeEach(() => {
+
       const input = wrapper.find('input').first();
       input.simulate('change', {
         target: { value: value },
@@ -111,7 +114,7 @@ describe('FoodSearch', () => {
           wrapper.html()
         ).toContain(foods[1].description);
       });
-
+//find() selects first element in the tbody tr
       describe('then user clicks food item', () => {
         beforeEach(() => {
           const foodRow = wrapper.find('tbody tr').first();

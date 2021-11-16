@@ -116,7 +116,25 @@ check:
 food-lookup-complete/client/test/complete/FoodSearch.test.complete-6.js
 
 
-The user clicks on a food item________________________________
+The user clicks on a food item____(adding it to the list)____________________
+--items displayed in <tr> that has an onClick handler(prop function
+passed to FoodSearch) <- FoodSearch.js
+
+--mock the onFoodClick prop instead of real App.
+check:
+food-lookup-complete/client/test/complete/FoodSearch.test.complete-7.js
+* mocking functions as props keeps original FoodSearch in 
+total isolation.
+
+//API returns empty result set________________________________
+check:
+food-lookup-complete/client/test/complete/FoodSearch.test.complete-8.js
+
+more: https://jestjs.io/docs/api
+      https://jasmine.github.io/2.5/introduction.html
+      https://enzymejs.github.io/enzyme/docs/api/shallow.html
+      
+
 
 pg 380
 
