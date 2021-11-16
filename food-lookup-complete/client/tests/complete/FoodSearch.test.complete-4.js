@@ -16,6 +16,7 @@ describe('FoodSearch', () => {
   });
 
   afterEach(() => {
+  //mockClear avoids state leaking(resetting mock between tests)
     Client.search.mockClear();
   });
 

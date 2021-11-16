@@ -1,7 +1,9 @@
 import React from 'react';
 
 class App extends React.Component {
+  //2 state properties
   state = {
+    //items is tied to control input, check render
     items: [],
     item: '',
   };
@@ -11,7 +13,7 @@ class App extends React.Component {
       item: e.target.value,
     });
   };
-
+//onSubmit called from form, adding new items
   addItem = (e) => {
     e.preventDefault();
 
@@ -37,7 +39,8 @@ class App extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {
+            { //iteration over this.state.items to see all items
+           
               this.state.items.map((item, idx) => (
                 <tr
                   key={idx}
@@ -50,6 +53,7 @@ class App extends React.Component {
           <tfoot>
             <tr>
               <th>
+                {/* control input inside a form*/}
                 <form
                   className='ui form'
                   onSubmit={this.addItem}

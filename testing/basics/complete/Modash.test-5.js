@@ -3,6 +3,7 @@ import Modash from './Modash';
 
 describe('Modash', () => {
   describe('`truncate()`', () => {
+    //variable inside describe in scope for it blocks
     const string = 'there was one catch, and that was CATCH-22';
 
     it('truncates a string', () => {

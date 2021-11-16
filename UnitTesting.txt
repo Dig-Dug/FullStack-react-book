@@ -99,7 +99,26 @@ mock generator for entire modules: jest.mock('../src/Client')
 Mocking Client__________________________________
 cd complete/FoodSearch.test.complete-3.js 
 
-pg 370
+check documentation for mockClear()
+check:
+food-lookup-complete/client/test/complete/FoodSearch.test.complete-4.js
+
+//convert dummy spec into a real one
+check:
+food-lookup-complete/client/test/complete/FoodSearch.test.complete-5.js
+
+test: npm test
+
+
+//The API returns results________________________________
+
+check:
+food-lookup-complete/client/test/complete/FoodSearch.test.complete-6.js
+
+
+The user clicks on a food item________________________________
+
+pg 380
 
 
 

@@ -3,6 +3,8 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import FoodSearch from '../src/FoodSearch';
 
+
+//initial state specs
 describe('FoodSearch', () => {
   let wrapper;
 
@@ -11,13 +13,14 @@ describe('FoodSearch', () => {
       <FoodSearch />
     );
   });
-
+//remove icon is not in the DOM, find method(returns an array-like)
   it('should not display the remove icon', () => {
     expect(
       wrapper.find('.remove.icon').length
+  //array should be 0
     ).toBe(0);
   });
-
+//table dont have any entries
   it('should display zero rows', () => {
     expect(
       wrapper.find('tbody tr').length

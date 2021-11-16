@@ -60,7 +60,7 @@ describe('FoodSearch', () => {
       console.log('All invocations: ');
       console.log(Client.search.mock.calls);
     });
-
+//invocationArgs:  'brocc' called 0 times
     it('should call `Client.search() with `value`', () => {
       const invocationArgs = Client.search.mock.calls[0];
       expect(

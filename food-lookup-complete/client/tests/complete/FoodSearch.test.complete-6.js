@@ -59,7 +59,7 @@ describe('FoodSearch', () => {
         invocationArgs[0]
       ).toEqual(value);
     });
-
+//first declare array foods used as fake result
     describe('and API returns results', () => {
       const foods = [
         {
@@ -77,25 +77,31 @@ describe('FoodSearch', () => {
           carbohydrate_g: '32',
         },
       ];
+    //grab second argument from Client.search() <- callback function
+    //then invoke it with foods 
       beforeEach(() => {
         const invocationArgs = Client.search.mock.calls[0];
         const cb = invocationArgs[1];
         cb(foods);
+    //after invoking callback function, wrapper.update() will
+    //re render (wrapper.update() is called by enzyme after
+    //every simulate() call)
         wrapper.update();
       });
-
+//First spec: foods property in state must match foods array
       it('should set the state property `foods`', () => {
         expect(
           wrapper.state().foods
         ).toEqual(foods);
       });
-
+//second spec: should display two rows
       it('should display two rows', () => {
         expect(
           wrapper.find('tbody tr').length
         ).toEqual(2);
       });
-
+//both of foods must be displayed in table.
+//Enzyme html() method returns html of the component
       it('should render the description of first food', () => {
         expect(
           wrapper.html()
