@@ -1,5 +1,5 @@
 import React from 'react';
-
+//import Switch && goTo(under(lookForIt));
 import {
   BrowserRouter as Router,
   Route,
@@ -36,6 +36,7 @@ const App = () => (
       </ul>
 
       <hr />
+      {/**RouteComponents.beingWrapped(Switch) */}
       <Switch>
         <Route path='/atlantic/ocean' render={() => (
           <div>
@@ -54,7 +55,7 @@ const App = () => (
             Welcome! Select a body of saline water above.
           </h3>
         )} />
-
+      {/**catchAllRoute = allPaths(noPropsPath) */}
         <Route render={({ location }) => (
           <div className='ui inverted red segment'>
             <h3>

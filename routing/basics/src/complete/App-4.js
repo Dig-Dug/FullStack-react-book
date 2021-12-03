@@ -33,13 +33,13 @@ const Link = ({ to, children }, { history }) => (
 Link.contextTypes = {
   history: PropTypes.object,
 };
-
+//creating Redirect
 class Redirect extends React.Component {
 
   static contextTypes = {
     history: PropTypes.object,
   }
-
+//putting history inside componentDidMount- goTo render
   componentDidMount() {
     const history = this.context.history;
     const to = this.props.to;
@@ -97,7 +97,7 @@ const App = () => (
             <code>/pacific</code>
           </Link>
         </li>
-        <li>
+        <li> {/**defining new Link and Route, black-sea under */}
           <Link to='/black-sea'>
             <code>/black-sea</code>
           </Link>
@@ -134,10 +134,11 @@ const Pacific = () => (
 );
 
 class BlackSea extends React.Component {
+  //ternary operator.
   state = {
     counter: 3,
   };
-
+//use setInterval function decreases counter by 1 every second
   componentDidMount() {
     this.interval = setInterval(() => (
       this.setState(prevState => {
@@ -146,7 +147,8 @@ class BlackSea extends React.Component {
         };
       }
     )), 1000);
-  }
+  }  //clean interval when component unmounts(technique used in timers app)
+ 
   componentWillUnmount() {
     clearInterval(this.interval);
   }
@@ -157,7 +159,8 @@ class BlackSea extends React.Component {
         <p>Nothing to sea [sic] here ...</p>
         <p>Redirecting in {this.state.counter}...</p>
         {
-          (this.state.counter < 1) ? (
+//redirect logic happens here, counter less than 1? redirect : null
+           (this.state.counter < 1) ? (
             <Redirect to='/' />
           ) : null
         }

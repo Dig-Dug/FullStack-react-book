@@ -1,5 +1,7 @@
 import React from 'react';
 
+//neededComponents? deleteThoseFromApp4 : null.
+//'react-router-dom'{exports BrowserRouter as Alias} goDown().
 import {
   BrowserRouter as Router,
   Route,
@@ -35,7 +37,7 @@ const App = () => (
       </ul>
 
       <hr />
-
+{/**render is a prop */}
       <Route path='/atlantic/ocean' render={() => (
         <div>
           <h3>Atlantic Ocean — Again!</h3>
@@ -48,7 +50,8 @@ const App = () => (
       <Route path='/pacific' component={Pacific} />
       <Route path='/black-sea' component={BlackSea} />
 
-      {/* This solution is problematic */}
+      {/* This solution is problematic. '/' <- matches all paths(rendering
+        same page always use prop "exact in App-6") */}
       <Route path='/' render={() => (
         <h3>
           Welcome! Select a body of saline water above.

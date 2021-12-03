@@ -21,10 +21,44 @@ cd routing/basics/package.json <- "history": "4.3.0"
 cd routing/basics/src/complete/App-2.js
 
 Building Router---------------------------      
+needsTo: supply children with location and history(use context)
+         Re-render app when history changes.(componentDidMount 
+         needs to be relocated)
+
+cd routing/basics/src/complete/App-3.js
+
+Building Redirect---------------------------
+-like link but modifies location whenever is rendered(need "to" prop,
+history(to modify browser´s location) from context)
+
+cd routing/basics/src/complete/App-4.js
+
+Using react-router(library(several npm´s))-------------------------------
+in App.js(import React from "react"(takes care history management)
+   , (createHistory <= removeIt!!!))
+
+cd routing/basics/src/complete/App-5.js
+
+More Route--------------------------------
+
+Route(limitations(matching && location));
+
+USING Switch--------------------------------
+-only(match.location(exact match && ignore(other paths)));
+-Switch(imported);
+cd routing/basics/src/complete/App-7.js
+
+
+Dynamic routing with React Router--------------------------------
+cd routing/music
+// npm i, cd client, npm i, cd .., npm start
+//not working :(
+
+pg 427
+)
 
 
 
 
 
 
-pg 397
