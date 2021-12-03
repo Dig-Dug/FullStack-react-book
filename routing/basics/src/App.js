@@ -31,7 +31,8 @@ class App extends React.Component {
     );
   }
 }
-//stateless functional components
+//stateless functional components, to render later inside App, when
+//browser´s location from hrefs--, goTo index.js 
 const Atlantic = () => (
   <div>
     <h3>Atlantic Ocean</h3>

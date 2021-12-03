@@ -1,5 +1,5 @@
 import React from 'react';
-
+//import package--goTo render
 import createHistory from 'history/createBrowserHistory';
 
 const history = createHistory();
@@ -14,10 +14,13 @@ const Route = ({ path, component }) => {
     return null;
   }
 };
-
+//stateless function renders an <a> and onClick handle
 const Link = ({ to, children }) => (
   <a
+  /**onCLick handler "e" event object */
     onClick={(e) => {
+  {/**prevents browser from making web requests ,
+  children references all React elements contained in Link, goTo class App */}
       e.preventDefault();
       history.push(to);
     }}
@@ -26,12 +29,13 @@ const Link = ({ to, children }) => (
     {children}
   </a>
 );
-
+//listen() invoked every time the history stack changes
 class App extends React.Component {
   componentDidMount() {
+//listen subscribes to history. Now re-rendering App.
     history.listen(() => this.forceUpdate());
   }
-
+//preventing browser from making a new request
   render() {
     return (
       <div
@@ -42,7 +46,7 @@ class App extends React.Component {
         </h2>
 
         <ul>
-          <li>
+          <li> {/**instead of <a> use Link components using "to" props. goTo Link up */}
             <Link to='/atlantic'>
               <code>/atlantic</code>
             </Link>

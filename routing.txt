@@ -12,6 +12,17 @@ Building the Components of react-router______________
 Building route_____________________________    
 cd basics/src/App.js
 
+cd basics/src/complete/App-1.js
+
+Building Link-----------------------
+manually updating browser location. <- check https://developer.mozilla.org/en-US/docs/Web/API/History_API
+
+cd routing/basics/package.json <- "history": "4.3.0"
+cd routing/basics/src/complete/App-2.js
+
+Building Router---------------------------      
+
+
 
 
 

@@ -1,16 +1,22 @@
 import React from 'react';
+//writing the route-
 
+//ES6 destructuring syntax, 2 props.
 const Route = ({ path, component }) => {
+//instantiate pathname variable.window.location <- props of actual
+//browser´s location. Pathname grabbing URL
   const pathname = window.location.pathname;
   if (pathname.match(path)) {
     return (
+    //returning the component, other option possible pg 403
       React.createElement(component)
     );
   } else {
     return null;
   }
 };
-
+//this doesn't changes location of browser, but still makes
+//a web request which is not ideal.
 class App extends React.Component {
   render() {
     return (
@@ -35,7 +41,7 @@ class App extends React.Component {
         </ul>
 
         <hr />
-
+{/**Route component */}
         <Route path='/atlantic' component={Atlantic} />
         <Route path='/pacific' component={Pacific} />
       </div>
