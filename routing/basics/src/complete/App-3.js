@@ -2,9 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import createHistory from 'history/createBrowserHistory';
+//Wrapping App in a Router component!!!
 
-const history = createHistory();
 
+//commented line, cos history´s being initialized inside Router
+//const history = createHistory();
+
+//grab location and context(stateless functional component)
 const Route = ({ path, component }, { location }) => {
   const pathname = location.pathname;
   if (pathname.match(path)) {
@@ -20,7 +24,7 @@ Route.contextTypes = {
   location: PropTypes.object,
 };
 
-
+//Link can use history property from context object
 const Link = ({ to, children }, { history }) => (
   <a
     onClick={(e) => {
@@ -38,7 +42,7 @@ Link.contextTypes = {
 };
 
 class Router extends React.Component {
-
+//expose properties to child components, specify type of context
   static childContextTypes = {
     history: PropTypes.object,
     location: PropTypes.object,
@@ -46,11 +50,11 @@ class Router extends React.Component {
 
   constructor(props) {
     super(props);
-
+//initialize history- then subscribe to changes
     this.history = createHistory();
     this.history.listen(() => this.forceUpdate());
   }
-
+//return context object
   getChildContext() {
     return {
       history: this.history,
@@ -62,7 +66,7 @@ class Router extends React.Component {
     return this.props.children;
   }
 }
-
+//remove componentDidMount(), add Router(declare Router above)
 const App = () => (
   <Router>
     <div

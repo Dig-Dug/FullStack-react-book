@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+//Add Route to Component, goto render
 import { Route } from 'react-router-dom';
 
 import Album from './Album-1';
@@ -34,7 +34,14 @@ class AlbumsContainer extends Component {
         })
        ));
   };
-
+//below  VerticalMenu, replace map with reder prop.
+/**
+ * path='/albums/:albumId' <- React Router part of URL dynamic parameter
+ * render= match <- prop on Route to a function
+ * Route= extracts all dynamic params from URL and passes to the target
+ * component inside match.params.
+ * find= get album matched by params.albumId, giving a single album
+ */
   render() {
     if (!this.state.fetched) {
       return (

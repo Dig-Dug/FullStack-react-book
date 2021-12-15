@@ -41,6 +41,8 @@ class AlbumsContainer extends Component {
         <div className='ui active centered inline loader' />
       );
     } else {
+      //declare new variable, then change path to prop on Route to
+      //use it.
       const matchPath = this.props.match.path;
 
       return (
@@ -67,7 +69,7 @@ class AlbumsContainer extends Component {
                     albumsPathname={matchPath}
                   />
                 );
-              }}
+              }} //goto components-complete/Album.js
             />
           </div>
         </div>

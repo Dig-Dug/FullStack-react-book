@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import '../styles/VerticalMenu.css';
 
+//using prop to compose attribute for Link.
 const VerticalMenu = ({ albums, albumsPathname }) => (
   <div className='ui secondary vertical menu'>
     <div className='header item'>

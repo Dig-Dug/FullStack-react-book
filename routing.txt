@@ -48,13 +48,40 @@ USING Switch--------------------------------
 -Switch(imported);
 cd routing/basics/src/complete/App-7.js
 
+https://v5.reactrouter.com/web/api/Route
 
 Dynamic routing with React Router--------------------------------
 cd routing/music
 // npm i, cd client, npm i, cd .., npm start
-//not working :(
+//not working :(  https://stackoverflow.com/questions/47612580/react-scripts-command-not-found
 
-pg 427
+
+The Server´s API--------------------------------
+ POST/api/login:
+
+ server(/api/login){
+    token == api/login;
+    token.require(enpoint(api/albums))
+    return token;
+ }
+
+see --> music/server.js
+
+Starting point of the app--------------------------------
+goto -> routing/music/client/src/index.js
+ goto -> client/src/components.
+ goto -> client/src/components/App.js
+ goto -> client/src/components/AlbumsContainer.js
+
+Using URL params--------------------------------
+goto -> client/src/components-complete/App-1.js
+
+Propagating pathnames as props-----------------
+go to -> client/src/components-complete/Album-1.j
+
+Dynamic menu items with NavLink----------------
+
+pg 450
 )
 
 

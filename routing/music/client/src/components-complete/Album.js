@@ -19,7 +19,8 @@ const Album = ({ album, albumsPathname }) => (
         <div className='one wide column' />
         <div className='six wide column'>
           <p>
-            {
+            {  //setting prop to albumsPathname, apply same concept to VerticalMenu in albumsContainer-2.js
+            //goTo VerticalMenu-2.js  
               `By ${album.artist.name}
               - ${album.year}
               - ${album.tracks.length} songs`

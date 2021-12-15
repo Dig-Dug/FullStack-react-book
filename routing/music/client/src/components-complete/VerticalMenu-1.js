@@ -1,5 +1,5 @@
 import React from 'react';
-
+//needed Link
 import { Link } from 'react-router-dom';
 
 import '../styles/VerticalMenu.css';
@@ -9,8 +9,10 @@ const VerticalMenu = ({ albums }) => (
     <div className='header item'>
       Albums
     </div>
-    {
+    { //mapping to compose all Link Components. "to" prop: "albums/:albumId"
+    //'item' for styling, goto components/AlbumsContainer.js
       albums.map((album) => (
+        
         <Link
           to={`/albums/${album.id}`}
           className='item'

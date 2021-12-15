@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import Album from './Album';
 import { client } from '../Client';
 
+//Add VerticalMenu, then nest it in render
+import VerticalMenu from './VerticalMenu';
+
+//hard-coded list
 const ALBUM_IDS = [
   '23O4F21GDWiGd33tFN3ZgI',
   '3AQgdwMNCiN7awXch5fAaG',
@@ -10,28 +14,29 @@ const ALBUM_IDS = [
   '6ymZBbRSmzAvoSGmwAFoxm',
   '4Mw9Gcu1LT7JaipXdwrq1Q',
 ];
-
+//stateful component
 class AlbumsContainer extends Component {
   state = {
-    fetched: false,
+  //two states
+    fetched: false, //keeping track, if mounted, getAlbums()
     albums: [],
   };
 
   componentDidMount() {
     this.getAlbums();
   }
-
-  getAlbums = () => {
+//using client library, as argument is an array of album IDs expected
+  getAlbums = () => { //first ask for login fake token(in server.js)
     client.setToken('D6W69PRgCoDKgHZGJmRUNA');
     client.getAlbums(ALBUM_IDS)
       .then((albums) => (
-        this.setState({
+        this.setState({ //update state
           fetched: true,
           albums: albums,
         })
        ));
   };
-
+//render icon or all albums in this.state.albums
   render() {
     if (!this.state.fetched) {
       return (
@@ -44,7 +49,8 @@ class AlbumsContainer extends Component {
             className='ui six wide column'
             style={{ maxWidth: 250 }}
           >
-            {/* VerticalMenu will go here */}
+            {/* VerticalMenu will go here, goto AlbumsContainer-1.js*/}
+            <VerticalMenu albums={this.state.albums} />
           </div>
           <div className='ui ten wide column'>
             {
