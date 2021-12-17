@@ -1,1 +1,27 @@
 pg 469
+
+before all state was flowing downward to children.
+this means too complex UI interactions and state coupling.
+
+Flux is a design pattern----------------------------
+View: dispatch actions to describe actions.
+Store: receives actions, and determines state changes. After
+is pushed back to View.
+
+Flux:  breaks up state management logic.
+       React Components are simpler.
+       Mis-match between state tree and DOM tree.
+
+other flux sources: https://github.com/voronianski/flux-comparison
+
+REDUX---------------------------------------------
+  .data = state <- storable.
+  .app reads state from Store.
+  .views emit actions.
+  .reducer= new state comming from old state and actions taken.
+
+
+Building a counter---------------------------------
+
+pg 472
+
