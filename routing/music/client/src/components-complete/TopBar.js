@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { client } from '../Client';
-
+//rendering menu bar at top of page.
 const TopBar = () => (
   <div
     className='ui huge top attached fluid secondary menu'
@@ -18,7 +18,8 @@ const TopBar = () => (
       </h1>
     </div>
     <div className='right menu'>
-      {
+      { //check if user is logged in ternary operator. isLoggedIn?
+      //token present?
         client.isLoggedIn() ? (
           <Link className='ui item' to='/logout'>
             Logout

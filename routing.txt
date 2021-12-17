@@ -80,9 +80,33 @@ Propagating pathnames as props-----------------
 go to -> client/src/components-complete/Album-1.j
 
 Dynamic menu items with NavLink----------------
+go to -> client/src/components-complete/VerticalMenu-3.j
 
-pg 450
-)
+Adding a redirect for the root path--------------
+go to -> client/src/components-complete/App-3.js
+
+Supporting asuthenticated routes----------------
+  -request API endpoint
+
+The Client library--------------------------------
+go to -> client/src/Client.js
+
+Implementing login--------------------------------
+go to -> client/src/components-complete/Login-1.js
+
+PrivateRoute, a higher order component---------------
+redirect users which arent logged in, a higher-order component is 
+a React component that wraps another one.
+goto -> client/src/components-complete/App-5.js
+
+Redirect state--------------------------------
+*login needs to know where the user came from and logging it right there
+goto PrivateRoute.js
+
+MORE HERE: https://reactrouter.com/
+      
+pg 469
+
 
 
 

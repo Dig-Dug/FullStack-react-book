@@ -4,12 +4,14 @@ import { Route, Redirect } from 'react-router-dom';
 
 import TopBar from './TopBar';
 import AlbumsContainer from './AlbumsContainer-3';
+//adding login and logout
 import Login from './Login-1';
 import Logout from './Logout';
 
 import '../styles/App.css';
 
-const App = () => (
+const App = () => ( //adding Route components for each of them. Remove the
+  //manual setToken from "getAlbums" example in goto -> AlbumsContainer.js,
   <div className='ui grid'>
     <TopBar />
     <div className='spacer row' />

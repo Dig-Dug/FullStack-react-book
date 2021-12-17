@@ -41,7 +41,7 @@ class Client {
   notifySubscribers() {
     this.subscribers.forEach((cb) => cb(this.isLoggedIn()));
   }
-
+//stores token in localStorage if it is available
   setToken(token) {
     this.token = token;
 
@@ -49,7 +49,7 @@ class Client {
       localStorage.setItem(LOCAL_STORAGE_KEY, token);
     }
   }
-
+//after logout, remove token from localStorage(null)
   removeToken() {
     this.token = null;
 
@@ -88,7 +88,8 @@ class Client {
     }).then(this.checkStatus)
       .then(this.parseJson);
   }
-
+//executes requesrs, checks for 201 status, parses json response value,
+//and stores token with setToken function.
   login() {
     return fetch('/api/login', {
       method: 'post',

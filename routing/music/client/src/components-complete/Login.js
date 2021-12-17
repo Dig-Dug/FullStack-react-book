@@ -16,7 +16,7 @@ class Login extends Component {
       this.setState({ shouldRedirect: true })
     ));
   };
-
+//redirecting user after log in, reading locationState. 
   redirectPath = () => {
     const locationState = this.props.location.state;
     const pathname = (
@@ -26,6 +26,7 @@ class Login extends Component {
   };
 
   render() {
+//if it sees from property it will return that string, otherwise it will return '/albums'
     if (this.state.shouldRedirect) {
       return (
         <Redirect to={this.redirectPath()} />

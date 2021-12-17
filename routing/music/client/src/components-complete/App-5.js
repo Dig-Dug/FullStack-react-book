@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
 import TopBar from './TopBar';
+//adding PrivateRoute
 import PrivateRoute from './PrivateRoute';
 import AlbumsContainer from './AlbumsContainer';
 import Login from './Login';
@@ -19,7 +20,8 @@ const NoMatch = ({ location }) => (
   </div>
 );
 
-const App = () => (
+const App = () => ( //switch for swapping Route for PrivateRoute.
+  //goto PrivateRoute-1.js
   <div className='ui grid'>
     <TopBar />
     <div className='spacer row' />

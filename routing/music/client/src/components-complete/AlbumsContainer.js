@@ -23,7 +23,7 @@ class AlbumsContainer extends Component {
   componentDidMount() {
     this.getAlbums();
   }
-
+//token removed unlike last examples. goto -> TopBar.js
   getAlbums = () => {
     client.getAlbums(ALBUM_IDS)
       .then((albums) => (

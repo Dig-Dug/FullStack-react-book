@@ -6,7 +6,9 @@ import { client } from '../Client';
 
 class Login extends Component {
   state = {
+    //state property loginInProgress when login is in progress
     loginInProgress: false,
+    //state property shouldRedirect when login is successful, goes to albums
     shouldRedirect: false,
   };
 
@@ -17,12 +19,13 @@ class Login extends Component {
     ));
   };
 
-  render() {
+  render() { //check if component should redirect, then render "<Redirect />"
     if (this.state.shouldRedirect) {
       return (
         <Redirect to='/albums' />
       );
-    } else {
+    } else { //loginInProgress to determine whether to show login button 
+      //or loading indicator. Go to Logout.js---
       return (
         <div className='ui one column centered grid'>
           <div className='ten wide column'>

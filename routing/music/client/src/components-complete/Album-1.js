@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import '../styles/Album.css';
 import { durationToHuman } from '../Helpers';
 
+//check Link 
 const Album = ({ album }) => (
   <div className='Album'>
     <div className='row'>
@@ -28,7 +29,10 @@ const Album = ({ album }) => (
           <div
             className='ui left floated large button'
           >
-            Close
+            <Link to='/albums'
+              className='ui left floated large button'
+            >Close
+            </Link>
           </div>
         </div>
       </div>
