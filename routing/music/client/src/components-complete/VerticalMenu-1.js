@@ -12,7 +12,7 @@ const VerticalMenu = ({ albums }) => (
     { //mapping to compose all Link Components. "to" prop: "albums/:albumId"
     //'item' for styling, goto components/AlbumsContainer.js
       albums.map((album) => (
-        
+        //here should swap with NavLink for styling
         <Link
           to={`/albums/${album.id}`}
           className='item'

@@ -23,5 +23,42 @@ REDUX---------------------------------------------
 
 Building a counter---------------------------------
 
-pg 472
+cd redux/counter
+npm install
+
+Overwiew.------------------------------
+Actions => Object{type} goto redux/counter/complete/initial-reducer.js
+
+Supporting additional parameters on actions----------------
+goto redux/counter/complete/reducer-w-amount.js
+
+.store <- maintains state and accept actions from the view.
+.only store has access to reducer.
+
+goto redux/counter/complete/reducer-w-store-v1.js
+
+.state is never mutated directly outside of the store.
+.new state is created by reducer(mix of old state and actions).
+
+The beginnings of a chat app------------------------------
+cd ../chat_simple, npm install, npm start, localhost:3000
+
+works cos -> create react app.
+
+goto redux/chat_simple/src/complete/index.js and later app-1.js
+
+Delete message action------------------------------
+goto redux/chat_simple/src/complete/App-2.js
+
+Subscribing to store------------------------------
+.view needs to know when state changes. SetState calls renders,
+getState is inefficient. Best use an observer pattern.
+goto redux/chat_simple/src/complete/App-3.js
+
+The App Component (the real thing)------------------------------
+goto redux/chat_simple/src/complete/App-5.js
+
+
+Intermediate Redux----------------------------------------------
+pg 508
 
