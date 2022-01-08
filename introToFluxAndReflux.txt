@@ -88,13 +88,23 @@ Updating App....
 goto chat_intermediate/src/complete/App-4.js (line 60)
 
 Creating ThreadTabs----------------------------------------------
+Updating ADD_MESSAGE in the reducer.------------------------------
+       -msgs now belong to a thread. 
+       -use threadId.
 
+       goto -> chat_intermediate/src/complete/App-5.js
 
+Updating DELETE_MESSAGE in the reducer---------------------
+   reducer will search all of the Threads for matching message.
+   goto -> chat_intermediate/src/complete/App-6.js
 
+Adding the action OPEN_THREAD------------------------------
+---whenever user clicks  a thread to open it.
+    -this new action to be defined in the reducer.
 
+   goto -> chat_intermediate/src/complete/App-7.js (line 56)
 
+Dispatchcuing from ThreadTabs----------------------------------------------
 
-
-
-pg 524
+pg 536
 

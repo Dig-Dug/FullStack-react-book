@@ -52,10 +52,11 @@ function reducer(state, action) {
           threadIndex + 1, state.threads.length
         ),
       ],
-    };
+    }; 
   } else if (action.type === 'OPEN_THREAD') {
+    //copy all attributes from state(not modifiying it) to new object
     return {
-      ...state,
+      ...state, //overwrite activeThreadId with propety of new object
       activeThreadId: action.id,
     };
   } else {

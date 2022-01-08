@@ -27,22 +27,27 @@ function reducer(state, action) {
           threadIndex + 1, state.threads.length
         ),
       ],
-    };
+    };   //identify thread holding message to be deleted
   } else if (action.type === 'DELETE_MESSAGE') {
+    //findIndex callback use a find.
     const threadIndex = state.threads.findIndex(
+//find against messages thread property, if found(action id, return message,
+//return thread index)
       (t) => t.messages.find((m) => (
+    
         m.id === action.id
       ))
     );
     const oldThread = state.threads[threadIndex];
-
-    const newThread = {
-      ...oldThread,
+//
+    const newThread = { //copy all attrubztes from oldThread
+      ...oldThread, //overwrite messages property using filter
+      //for new array which don´t includes deleted messages
       messages: oldThread.messages.filter((m) => (
         m.id !== action.id
       )),
     };
-
+//same as ADD:MEDDAGE---
     return {
       ...state,
       threads: [

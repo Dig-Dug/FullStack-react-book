@@ -4,20 +4,27 @@ import { createStore } from 'redux';
 
 function reducer(state, action) {
   if (action.type === 'ADD_MESSAGE') {
+    //newMessage instantiated with text, timestamp, id
     const newMessage = {
       text: action.text,
       timestamp: Date.now(),
       id: uuid.v4(),
-    };
+    }; 
+    //threadIndex: found through state, threads with action.threadId
     const threadIndex = state.threads.findIndex(
       (t) => t.id === action.threadId
     );
+
     const oldThread = state.threads[threadIndex];
     const newThread = {
-      ...oldThread,
+      //spread syntax, copying from existing object properties
+      ...oldThread, 
+      //adding property message  of newThread to messages array 
+      //messages after oldThread is overwriting 
       messages: oldThread.messages.concat(newMessage),
     };
-
+//create new object, copy  properties of state in new  object
+//ner array overwrites threads property
     return {
       ...state,
       threads: [
@@ -157,7 +164,9 @@ class Thread extends React.Component {
       id: id,
     });
   };
-
+//line 181: ADD_MESSAGE contains property threadId. MessageInput
+//component dispatches this action, ThreadId sets 
+//id to active thread, as prop.
   render() {
     const messages = this.props.thread.messages.map((message, index) => (
       <div

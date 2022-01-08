@@ -76,7 +76,8 @@ class App extends React.Component {
 }
 
 class ThreadTabs extends React.Component {
-  render() {
+  render() { //map over this.props.tabs, each tab is a div of class "item".
+    //active ones have class "active"- Index key prop for React-required.
     const tabs = this.props.tabs.map((tab, index) => (
       <div
         key={index}
