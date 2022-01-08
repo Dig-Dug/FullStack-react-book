@@ -60,5 +60,41 @@ goto redux/chat_simple/src/complete/App-5.js
 
 
 Intermediate Redux----------------------------------------------
-pg 508
+cd redux/chat_intermediate: npm install, npm start......
+package.json: included redux library package.json
+
+goTo -> chat_intermediate/src/complete/App-2.js
+//timestamp library humanliy readable https://momentjs.com/
+
+INTRODUCING THREADS----------------------------------------------
+in chat a thread is a distinct set of message, between you and 1 or 
+more users
+goTo -> chat_intermediate/src/complete/App-3.js 
+
+
+TURNING MessageView INTO Thread----------------------------------------------
+-messages collected in a single thread. Thread component renders list of messages
+and messageInput component for adding new messages to thread.
+
+goTo -> chat_intermediate/src/complete/App-3.js
+
+ADDING THE ThreadTabs Component----------------------------------------------
+ -this component at top will need  list of thread titles to 
+ render as tabs.
+Updating App....
+-tabs array(objects with info needed by ThreadTabs to render each tab)
+- ThreadTabs needs title of each tab, and if is active or not.
+
+goto chat_intermediate/src/complete/App-4.js (line 60)
+
+Creating ThreadTabs----------------------------------------------
+
+
+
+
+
+
+
+
+pg 524
 

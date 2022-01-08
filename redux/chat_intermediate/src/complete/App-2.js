@@ -1,20 +1,23 @@
 import React from 'react';
+//import uuid library in package.json
 import uuid from 'uuid';
 import { createStore } from 'redux';
 
+
+//reducer handling new messages objects
 function reducer(state, action) {
-  if (action.type === 'ADD_MESSAGE') {
+  if (action.type === 'ADD_MESSAGE') { //create new object to represent new message
     const newMessage = {
-      text: action.text,
-      timestamp: Date.now(),
+      text: action.text, //text property
+      timestamp: Date.now(), //generate timestamp and id//Unix milli seconds
       id: uuid.v4(),
     };
     return {
-      messages: state.messages.concat(newMessage),
+      messages: state.messages.concat(newMessage),//concat returns new array with states
     };
   } else if (action.type === 'DELETE_MESSAGE') {
     return {
-      messages: state.messages.filter((m) => (
+      messages: state.messages.filter((m) => ( //return new array with every object that has no corresponding id to action
         m.id !== action.id
       ))
     };
@@ -58,7 +61,7 @@ class MessageInput extends React.Component {
   handleSubmit = () => {
     store.dispatch({
       type: 'ADD_MESSAGE',
-      text: this.state.value,
+      text: this.state.value,  //use property name text for action
     });
     this.setState({
       value: '',
@@ -84,11 +87,11 @@ class MessageInput extends React.Component {
     );
   }
 }
-
+//whenever user clicks on msg.
 class MessageView extends React.Component {
   handleClick = (id) => {
     store.dispatch({
-      type: 'DELETE_MESSAGE',
+      type: 'DELETE_MESSAGE', //use prop id
       id: id,
     });
   };
@@ -100,7 +103,8 @@ class MessageView extends React.Component {
         key={index}
         onClick={() => this.handleClick(message.id)} // Use `id`
       >
-        <div className='text'> {/* Wrap message data in `div` */}
+        <div className='text'> {/* Wrap message data in `div`
+        message.text render message and timestamp */}
           {message.text}
           <span className='metadata'>@{message.timestamp}</span>
         </div>

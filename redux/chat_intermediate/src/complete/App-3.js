@@ -22,9 +22,9 @@ function reducer(state, action) {
     return state;
   }
 }
-
+//initialize to object with threads property, 2 threads in state.
 const initialState = {
-  activeThreadId: '1-fca2', // New state property
+  activeThreadId: '1-fca2', // New state property id
   threads: [ // Two threads in state
     {
       id: '1-fca2', // hardcoded pseudo-UUID
@@ -33,7 +33,7 @@ const initialState = {
         { // This thread starts with a single message already
           text: 'Twelve minutes to ignition.',
           timestamp: Date.now(),
-          id: uuid.v4(),
+          id: uuid.v4(), //hardcoding id, using clipped version of uuid library 
         },
       ],
     },
@@ -53,11 +53,14 @@ class App extends React.Component {
   }
 
   render() {
-    const state = store.getState();
-    const activeThreadId = state.activeThreadId;
-    const threads = state.threads;
+    const state = store.getState(); //read messages property and render to
+    // 2 children
+    const activeThreadId = state.activeThreadId; //which thread is active?
+    const threads = state.threads; //wguch rhread from state?
+    //Array "find" method to 'find' object with matching id to activeThreadId
     const activeThread = threads.find((t) => t.id === activeThreadId);
 
+    //Give thread component the activeThread to render.
     return (
       <div className='ui segment'>
         <Thread thread={activeThread} />
@@ -106,7 +109,7 @@ class MessageInput extends React.Component {
     );
   }
 }
-
+//rename Component
 class Thread extends React.Component {
   handleClick = (id) => {
     store.dispatch({
@@ -114,7 +117,8 @@ class Thread extends React.Component {
       id: id,
     });
   };
-
+//this.props.thread.messages: create messages in render.
+//still not possible to add ot delete msgs.
   render() {
     const messages = this.props.thread.messages.map((message, index) => (
       <div

@@ -57,14 +57,15 @@ class App extends React.Component {
     const activeThreadId = state.activeThreadId;
     const threads = state.threads;
     const activeThread = threads.find((t) => t.id === activeThreadId);
-
+//here in render, creation of array of objects "tabs"-each object
+//contains title and active(boolean) property
     const tabs = threads.map(t => (
       { // a "tab" object
         title: t.title,
         active: t.id === activeThreadId,
       }
     ));
-
+//ThreadTabs component  as markup with tabs as prop:
     return (
       <div className='ui segment'>
         <ThreadTabs tabs={tabs} />
