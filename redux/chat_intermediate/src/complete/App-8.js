@@ -1,23 +1,26 @@
 import React from 'react';
 import uuid from 'uuid';
 import { createStore } from 'redux';
-
+//2 different reducers
 function reducer(state, action) {
-  return {
+  //returning a whole new object
+  return { //keys, activeThreadId(property), action second argument
     activeThreadId: activeThreadIdReducer(state.activeThreadId, action),
+    //same strategy as above
     threads: threadsReducer(state.threads, action),
   };
 }
-
+//state activeThreadId? string id of thread?
 function activeThreadIdReducer(state, action) {
-  if (action.type === 'OPEN_THREAD') {
+  if (action.type === 'OPEN_THREAD') { //return string.
     return action.id;
   } else {
     return state;
   }
 }
-
-function threadsReducer(state, action) {
+//rename from reducer to threadsReducer. Look up function "reducer"
+function threadsReducer(state, action) { //state updating(a part only(
+  //state is an array of threads))
   if (action.type === 'ADD_MESSAGE') {
     const newMessage = {
       text: action.text,

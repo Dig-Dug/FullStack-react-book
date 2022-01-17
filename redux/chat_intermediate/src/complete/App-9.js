@@ -16,7 +16,7 @@ function activeThreadIdReducer(state, action) {
     return state;
   }
 }
-
+//pass messagesReducer(array oldThread, action)
 function threadsReducer(state, action) {
   if (action.type === 'ADD_MESSAGE') {
     const threadIndex = state.findIndex(

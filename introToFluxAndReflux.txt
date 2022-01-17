@@ -104,7 +104,20 @@ Adding the action OPEN_THREAD------------------------------
 
    goto -> chat_intermediate/src/complete/App-7.js (line 56)
 
-Dispatchcuing from ThreadTabs----------------------------------------------
+Dispatching from ThreadTabs----------------------------------------------
+goto -> chat_intermediate/src/complete/App-7.js (line 102 und weiter)
 
-pg 536
+Breaking up the reducer function----------------------------------------------
+.-Each reducer will take care of different parts of state tree.
+. Adding ner reducers()
+goTo -> chat_intermediate/src/complete/App-8.js(line 20)
+
+Adding messagesReducer----------------------------------------------  
+//threadsReducer should only be concerned with threads and no messages
+
+goTo -> chat_intermediate/src/complete/App-9.js(line 19)
+
+
+
+pg 546
 

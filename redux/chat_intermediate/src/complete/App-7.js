@@ -98,7 +98,7 @@ class App extends React.Component {
     const activeThreadId = state.activeThreadId;
     const threads = state.threads;
     const activeThread = threads.find((t) => t.id === activeThreadId);
-
+//include new property "id" to tab object
     const tabs = threads.map(t => (
       {
         title: t.title,
@@ -115,7 +115,7 @@ class App extends React.Component {
     );
   }
 }
-
+//handleClick accepts id.
 class ThreadTabs extends React.Component {
   handleClick = (id) => {
     store.dispatch({
@@ -125,11 +125,12 @@ class ThreadTabs extends React.Component {
   };
 
   render() {
+    //add onCLick attribute to div for each tab
     const tabs = this.props.tabs.map((tab, index) => (
       <div
         key={index}
         className={tab.active ? 'active item' : 'item'}
-        onClick={() => this.handleClick(tab.id)}
+        onClick={() => this.handleClick(tab.id)} //add onClick for thread id.
       >
         {tab.title}
       </div>
