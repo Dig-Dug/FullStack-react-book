@@ -114,10 +114,31 @@ goTo -> chat_intermediate/src/complete/App-8.js(line 20)
 
 Adding messagesReducer----------------------------------------------  
 //threadsReducer should only be concerned with threads and no messages
+//messageReducer() delegated message function
 
 goTo -> chat_intermediate/src/complete/App-9.js(line 19)
+goTo -> chat_intermediate/src/complete/App-10.js
 
 
+reducer will take care of 3 reducers results. Next to check is the
+initial state.
+goTo -> chat_intermediate/src/complete/App-11.js 
 
-pg 546
+Using combineReducers() from redux----------------------------------------------
+goTo -> chat_intermediate/src/complete/App-12.js
+
+Using presentational and container components with redux----------------------------------------------
+--presentational in react renders only html
+..in redux dont interact with redux store.
+..container provides data and behavior as props to presentationals.
+
+goTo -> chat_intermediate/src/complete/App-12.js (line 124)
+
+Adding more tab functions? Spitting up ThreadTabs----------------------------------------------
+goTo -> chat_intermediate/src/complete/App-13.js (line 120)
+
+
+Spitting up Thread----------------------------------------------
+
+pg 565
 

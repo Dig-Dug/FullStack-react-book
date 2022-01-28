@@ -16,7 +16,7 @@ function activeThreadIdReducer(state, action) {
     return state;
   }
 }
-//pass messagesReducer(array oldThread, action)
+//pass messagesReducer(array oldThread[given messages], action)
 function threadsReducer(state, action) {
   if (action.type === 'ADD_MESSAGE') {
     const threadIndex = state.findIndex(
@@ -27,14 +27,14 @@ function threadsReducer(state, action) {
       ...oldThread,
       messages: messagesReducer(oldThread.messages, action),
     };
-
+//return needs no modification
     return [
       ...state.slice(0, threadIndex),
       newThread,
       ...state.slice(
         threadIndex + 1, state.length
       ),
-    ];
+    ]; //delete almost identical to ADD_MESSAGE
   } else if (action.type === 'DELETE_MESSAGE') {
     const threadIndex = state.findIndex(
       (t) => t.messages.find((m) => (
@@ -58,7 +58,8 @@ function threadsReducer(state, action) {
     return state;
   }
 }
-
+//needs to create new message and return array of messages
+//that includes new message appended to the end
 function messagesReducer(state, action) {
   if (action.type === 'ADD_MESSAGE') {
     const newMessage = {

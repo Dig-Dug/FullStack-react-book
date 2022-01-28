@@ -117,8 +117,10 @@ class App extends React.Component {
     );
   }
 }
-
-const Tabs = (props) => (
+//statelss functional component, js function returning markup
+//not specific to react objects(always recommended)
+const Tabs = (props) => ( //props 1sr argument passed from parents
+  //this.props will not work, map logic could also go above return
   <div className='ui top attached tabular menu'>
     {
       props.tabs.map((tab, index) => (
@@ -133,14 +135,16 @@ const Tabs = (props) => (
     }
   </div>
 );
-
+//this.props.tabs specified by App.
 class ThreadTabs extends React.Component {
   render() {
     return (
       <Tabs
         tabs={this.props.tabs}
         onClick={(id) => (
-          store.dispatch({
+          store.dispatch({ //sending direct actions to store,
+            //better all containers should send and read actions from store.
+          //check in app-14.js (line 141)
             type: 'OPEN_THREAD',
             id: id,
           })

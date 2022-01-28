@@ -2,13 +2,14 @@ import React from 'react';
 import uuid from 'uuid';
 import { createStore } from 'redux';
 
+//reducer uses now an blank object, receiving undefined and setting state to tree.
 function reducer(state = {}, action) {
   return {
     activeThreadId: activeThreadIdReducer(state.activeThreadId, action),
     threads: threadsReducer(state.threads, action),
   };
 }
-
+//initial state to be id "1-fca2" 
 function activeThreadIdReducer(state = '1-fca2', action) {
   if (action.type === 'OPEN_THREAD') {
     return action.id;
@@ -34,6 +35,7 @@ function findThreadIndex(threads, action) {
   }
 }
 
+//without initial states would be only "[]"
 function threadsReducer(state = [
   {
     id: '1-fca2',
@@ -70,7 +72,7 @@ function threadsReducer(state = [
     }
   }
 }
-
+//calling messagesReducer with undefined
 function messagesReducer(state = [], action) {
   switch (action.type) {
     case 'ADD_MESSAGE': {

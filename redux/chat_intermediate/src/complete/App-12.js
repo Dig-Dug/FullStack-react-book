@@ -1,6 +1,10 @@
 import React from 'react';
 import uuid from 'uuid';
+//combineReducers generates top level reducer replacing ones written before
+//import it from redux library.
 import { createStore, combineReducers } from 'redux';
+
+
 
 const reducer = combineReducers({
   activeThreadId: activeThreadIdReducer,
@@ -117,7 +121,7 @@ class App extends React.Component {
     );
   }
 }
-
+//rendering html and communicating with store
 class ThreadTabs extends React.Component {
   handleClick = (id) => {
     store.dispatch({

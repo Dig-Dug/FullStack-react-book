@@ -16,8 +16,9 @@ function activeThreadIdReducer(state, action) {
     return state;
   }
 }
-
+//new function takes both threads and action
 function findThreadIndex(threads, action) {
+  //switch pretty common in redux
   switch (action.type) {
     case 'ADD_MESSAGE': {
       return threads.findIndex(

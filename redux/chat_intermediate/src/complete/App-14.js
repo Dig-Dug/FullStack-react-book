@@ -135,13 +135,13 @@ const Tabs = (props) => (
 );
 
 class ThreadTabs extends React.Component {
-  componentDidMount() {
+  componentDidMount() { //<--subscribe directly to store(like App)
     store.subscribe(() => this.forceUpdate());
   }
-
+//getState to read directly from store
   render() {
     const state = store.getState();
-
+//generate tabs
     const tabs = state.threads.map(t => (
       {
         title: t.title,
@@ -149,7 +149,7 @@ class ThreadTabs extends React.Component {
         id: t.id,
       }
     ));
-
+//no need of this.props, just tabs as variable
     return (
       <Tabs
         tabs={tabs}

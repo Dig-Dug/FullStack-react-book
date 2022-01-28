@@ -35,7 +35,7 @@ function threadsReducer(state, action) { //state updating(a part only(
       ...oldThread,
       messages: oldThread.messages.concat(newMessage),
     };
-
+//return array of threads.
     return [
       ...state.slice(0, threadIndex),
       newThread,
