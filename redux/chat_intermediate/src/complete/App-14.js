@@ -133,7 +133,8 @@ const Tabs = (props) => (
     }
   </div>
 );
-
+//rendering no markup, only interfaces with store specifying presentational components
+//component to render.
 class ThreadTabs extends React.Component {
   componentDidMount() { //<--subscribe directly to store(like App)
     store.subscribe(() => this.forceUpdate());
@@ -163,7 +164,7 @@ class ThreadTabs extends React.Component {
     );
   }
 }
-
+// rename MessageInput to this class. goto line 206
 class TextFieldSubmit extends React.Component {
   state = {
     value: '',
@@ -174,7 +175,7 @@ class TextFieldSubmit extends React.Component {
       value: e.target.value,
     })
   };
-
+// a single prop expected "onSubmit".
   handleSubmit = () => {
     this.props.onSubmit(this.state.value);
     this.setState({
@@ -201,7 +202,8 @@ class TextFieldSubmit extends React.Component {
     )
   }
 }
-
+//only render html, accepts 2 props (messages, onClick)
+//for brevity using m instead of messages.
 const MessageList = (props) => (
   <div className='ui comments'>
     {
@@ -220,7 +222,7 @@ const MessageList = (props) => (
     }
   </div>
 );
-
+//from ThreadDisplay passed (thread, onMessageClick, onMessageSubmit)
 const Thread = (props) => (
   <div className='ui center aligned basic segment'>
     <MessageList
@@ -232,19 +234,22 @@ const Thread = (props) => (
     />
   </div>
 );
-
+//rename from "Thread" to this class, goto line 167
+//reading and dispatching actions from store.
 class ThreadDisplay extends React.Component {
-  componentDidMount() {
+// conecting to store, getting active thread. Container component
+//renders Thread´s props thread and onMessageClick.
+  componentDidMount() { 
     store.subscribe(() => this.forceUpdate());
   }
-
+//grabbing active thread
   render() {
     const state = store.getState();
     const activeThreadId = state.activeThreadId;
     const activeThread = state.threads.find(
       t => t.id === activeThreadId
     );
-
+//specifying behavior.
     return (
       <Thread
         thread={activeThread}

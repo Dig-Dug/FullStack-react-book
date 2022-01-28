@@ -1,6 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
 import { createStore, combineReducers } from 'redux';
+//include Provider!!!!!!!!!!
 import { Provider } from 'react-redux';
 
 const reducer = combineReducers({
@@ -90,7 +91,8 @@ function messagesReducer(state = [], action) {
 }
 
 const store = createStore(reducer);
-
+//containers communicate to store directly now. App dont need to,
+//anymore.
 const App = () => (
   <div className='ui segment'>
     {/* `Thread` changed to `ThreadDisplay` below */}

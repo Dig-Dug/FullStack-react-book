@@ -138,7 +138,25 @@ Adding more tab functions? Spitting up ThreadTabs-------------------------------
 goTo -> chat_intermediate/src/complete/App-13.js (line 120)
 
 
-Spitting up Thread----------------------------------------------
+Splitting up Thread----------------------------------------------
+check picture "threadDisplay"
+goTo -> chat_intermediate/src/complete/App-14.js (line 236)
 
-pg 565
+
+Removing App from store----------------------------------------------
+goto -> chat_intermediate/src/complete/App-15.js (line 93)
+
+
+Generating containers with react-redux----------------------------------------------
+react-redux library function "connect()" <- generates container components.
+
+the Provider component----------------------------------------------
+       -provider makes store available to all components
+
+Wrapping App "in" Provider----------------------------------------------
+   -react-redux already in package.json.
+   goto -> chat_intermediate/src/complete/App-15.js
+
+
+pg 573
 
