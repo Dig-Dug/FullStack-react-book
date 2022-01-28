@@ -1,7 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
 import { createStore, combineReducers } from 'redux';
-//include Provider!!!!!!!!!!
+//include Provider!!!!!!!!!!goto line 250
 import { Provider } from 'react-redux';
 
 const reducer = combineReducers({
@@ -248,7 +248,9 @@ class ThreadDisplay extends React.Component {
     );
   }
 }
-
+//WrappedApp returns App inside Provider component
+//alternative import provider in index.js and wrap component there
+//goto app-16.js
 const WrappedApp = () => (
   <Provider store={store}>
     <App />

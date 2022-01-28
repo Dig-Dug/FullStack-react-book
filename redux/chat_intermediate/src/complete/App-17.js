@@ -90,14 +90,14 @@ function messagesReducer(state = [], action) {
 }
 
 const store = createStore(reducer);
-
+  //accept id of message to delete
 function deleteMessage(id) {
-  return {
+  return { //returns object of type DELETE_MESSAGE.
     type: 'DELETE_MESSAGE',
     id: id,
   };
 }
-
+// accepting text and threadId
 function addMessage(text, threadId) {
   return {
     type: 'ADD_MESSAGE',
@@ -105,7 +105,7 @@ function addMessage(text, threadId) {
     threadId: threadId,
   };
 }
-
+//id of thread to open.
 function openThread(id) {
   return {
     type: 'OPEN_THREAD',
@@ -149,7 +149,7 @@ const mapStateToTabsProps = (state) => {
     tabs,
   };
 };
-
+//replace action with action creators //goto line 242
 const mapDispatchToTabsProps = (dispatch) => (
   {
     onClick: (id) => (
@@ -239,7 +239,7 @@ const mapStateToThreadProps = (state) => (
     ),
   }
 );
-
+//this
 const mapDispatchToThreadProps = (dispatch) => (
   {
     onMessageClick: (id) => (
@@ -248,7 +248,7 @@ const mapDispatchToThreadProps = (dispatch) => (
     dispatch: dispatch,
   }
 );
-
+//finally
 const mergeThreadProps = (stateProps, dispatchProps) => (
   {
     ...stateProps,

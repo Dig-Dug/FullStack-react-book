@@ -157,6 +157,17 @@ Wrapping App "in" Provider----------------------------------------------
    -react-redux already in package.json.
    goto -> chat_intermediate/src/complete/App-15.js
 
+Action creators ------....,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+--sometimes same actions are dispatched from different locations.
+..action creators are functions that return action objects.
+--check jpeg actionCreator-
+goto -> chat_intermediate/src/complete/App-17.js(line 93)-
 
-pg 573
+Redux-Asynchronousityyyy https://github.com/reduxjs/redux-thunk
+
+https://redux.js.org/tutorials/fundamentals/part-6-async-logic
+
+
+
+pg 589
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
 import { createStore, combineReducers } from 'redux';
+//import connect from 'react-redux' library goto line 116
 import { Provider, connect } from 'react-redux';
 
 const reducer = combineReducers({
@@ -97,7 +98,7 @@ const App = () => (
     <ThreadDisplay />
   </div>
 );
-
+//
 const Tabs = (props) => (
   <div className='ui top attached tabular menu'>
     {
@@ -113,7 +114,8 @@ const Tabs = (props) => (
     }
   </div>
 );
-
+//when state chages this function says how to map new state
+//to props
 const mapStateToTabsProps = (state) => {
   const tabs = state.threads.map(t => (
     {
@@ -122,12 +124,12 @@ const mapStateToTabsProps = (state) => {
       id: t.id,
     }
   ));
-
+//ES6 object shorthand
   return {
     tabs,
   };
 };
-
+//dispatch as argumnent, this function goes second to connect
 const mapDispatchToTabsProps = (dispatch) => (
   {
     onClick: (id) => (
@@ -138,7 +140,8 @@ const mapDispatchToTabsProps = (dispatch) => (
     ),
   }
 );
-
+//using connect to create ThreadTabs,
+//this is a React container component.
 const ThreadTabs = connect(
   mapStateToTabsProps,
   mapDispatchToTabsProps
@@ -214,13 +217,13 @@ const Thread = (props) => (
 );
 
 const mapStateToThreadProps = (state) => (
-  {
+  {//return object that maps thread property to active thread in state
     thread: state.threads.find(
       t => t.id === state.activeThreadId
     ),
   }
 );
-
+//accepting id and dipatches delete message action.
 const mapDispatchToThreadProps = (dispatch) => (
   {
     onMessageClick: (id) => (
@@ -232,21 +235,22 @@ const mapDispatchToThreadProps = (dispatch) => (
     dispatch: dispatch,
   }
 );
-
+//this function will be passed results of state to props mapping,
+//returned object is for connect() to bind props of Thread.
 const mergeThreadProps = (stateProps, dispatchProps) => (
   {
     ...stateProps,
     ...dispatchProps,
     onMessageSubmit: (text) => (
-      dispatchProps.dispatch({
+      dispatchProps.dispatch({ //dispatch function from dispatchProps.
         type: 'ADD_MESSAGE',
         text: text,
-        threadId: stateProps.thread.id,
+        threadId: stateProps.thread.id, //id from stateProps
       })
     ),
   }
 );
-
+//2 mapping functions and 1 merge function.
 const ThreadDisplay = connect(
   mapStateToThreadProps,
   mapDispatchToThreadProps,
