@@ -47,6 +47,37 @@ graphNodes------------------------------------
  Viewer pattern(design)---------------------
  Graph Connections and Edges-----------------------
 
+ for huge amounts of data use "pagination"
+
+Subscriptions-------------------------------------
+example: likes number updating without refreshing page-
+  https://graphql.org/blog/subscriptions-in-graphql-and-relay/
+
+GraphQl with Javascript---------------------------------
+
+var query = '{graphQLHub}';
+var options = {
+  method: 'POST',
+  body: query,
+  headers: {
+    'content-Type': 'application/graphiql'
+   },
+};
+fetch('http://graphqlhub.com/graphql', options).then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    console.log(JSON.stringigy(data,null,2));
+  });
 
 
-page 611
+  Graphql with React---------------------------------
+   Using Relay is the closest for best practices.
+   Apollo alternative with redux:  
+   https://www.apollographql.com/
+
+
+
+
+
+page 621
