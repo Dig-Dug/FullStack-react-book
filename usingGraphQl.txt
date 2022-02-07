@@ -1,1 +1,52 @@
-page 589
+GraphQl-- 
+good for cross-platform applications and large teams.
+Benefits 
+--declaring exact data from server(less unnecessary data trafic, more speed)
+--better for unit and integration testing
+
+GraphQl vs Rest...
+ rest--many similar endpoints waste network resources:
+        /user/:id/profile  or /user/:id/profile_short/
+in GraphQl endpoint can paramters specify many things :P
+
+GraphQl works indepent from which database system or programming language
+ you use.
+(sql, mongoDB etc)
+
+connect GraphQl server to components in React:
+    Relay https://relay.dev/
+
+2 ways of using GraphQl:
+    1. Author of client web app
+    2. Author of GraphQl server
+
+Consuming GraphQl------------------------------------------
+  clients retrieving data from GraphQl servers.
+
+https://github.com/graphql/graphiql
+
+https://lucasconstantino.github.io/graphiql-online/ <- online editor
+https://github.com/graphql/graphiql <- play with queries.
+
+entire string is called "document"
+operations: query or mutation-  check jpegs graphQL.
+selections: are fields
+scalar types: int, string, float, boolean, id, enum, list, object
+schema: collection of fields
+
+Exploring GraphQl---graphs(nodes and edges)
+interfaces: pg 606-
+
+graphNodes------------------------------------
+ define simple Node interface:
+
+ interface Node {
+    id: ID  <- should be unique
+ }
+
+ Viewer pattern(design)---------------------
+ Graph Connections and Edges-----------------------
+
+
+
+page 611
