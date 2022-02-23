@@ -1,1 +1,47 @@
+pg 621 <---set up for windows users....
+
+http://expressjs.com/
+
+goto --> graphiql-server index.js
+
+remember nodemon package for constant updates.
+
+Adding first GraphQl Types-----------------------------------------------------
+pg 624 for setting up.
+gotot --> graphql-server server.js (line 21)
+
+--Schemas:
+http://spec.graphql.org/
+
+
+Mutation.-----------------------------------------------------------------------
+"Crud" <- mutation
+goto --> graphql-server server.js (line 11)
+
+Rich Schemas and SQL-----------------------------------------------------------
+https://github.com/brianc/node-sql
+https://github.com/mapbox/node-sqlite3  
+packages used for example.
+
+have a look on: src/tables.js
+
+
+Schema Design---------------------------------------------------------------
+ goto src/types.js
+
+
+
+Lists-------------------------------------------------------------------------
+pg 646
+
+
+
+
+
+
+
+
+
 pg 621
+
+
