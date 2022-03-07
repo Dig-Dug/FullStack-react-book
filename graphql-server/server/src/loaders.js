@@ -45,7 +45,8 @@ export const getFriendIdsForUser = (userSource) => {
     return rows;
   });
 };
-
+//SQL query grabs all friends and user´s profile simultaneously, eliminating
+//database roundtrip. 
 export const getUserNodeWithFriends = (nodeId) => {
   const { tableName, dbId } = tables.splitNodeId(nodeId);
 
@@ -63,7 +64,8 @@ export const getUserNodeWithFriends = (nodeId) => {
     if (!rows[0]) {
       return undefined;
     }
-
+//Then load friends in __friends property and access it in
+// types_friend_ids_efficient.js line 45
     const __friends = rows.map((row) => {
       return {
         user_id_b: row.user_id_b,
@@ -106,22 +108,25 @@ const canAccessLevel = (viewerLevel, contentLevel) => {
 
   return viewerLevelIndex >= contentLevelIndex;
 };
-
+//this loader will determine what data to fetch
+//define new function and parse arguments
+//https://relay.dev/graphql/connections.htm#sec-Pagination-algorithm
 export const getPostIdsForUser = (userSource, args, context) => {
   let { after, first } = args;
-  if (!first) {
+  if (!first) { //if user does not supply an argument for first, return 2 posts 
+    //then construct SQL query
     first = 2;
   }
-
+//SQL query
   const table = tables.posts;
   let query = table
     .select(table.id, table.created_at, table.level)
     .where(table.user_id.equals(userSource.id))
     .order(table.created_at.asc)
     .limit(first + 10);
-
+//if after cursor is passed...
   if (after) {
-    // parse cursor
+    // parse cursor(row ids and dates) goto loaders_connections line 94
     const [id, created_at] = after.split(':');
     query = query
       .where(table.created_at.gt(after))

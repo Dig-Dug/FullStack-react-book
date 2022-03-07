@@ -42,7 +42,7 @@ export const UserType = new GraphQLObjectType({
     },
     about: {
       type: new GraphQLNonNull(GraphQLString)
-    },
+    }, //Accessing
     friends: {
       type: new GraphQLList(GraphQLID),
       resolve(source) {

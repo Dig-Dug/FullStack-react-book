@@ -82,7 +82,7 @@ export const getPostIdsForUser = (userSource, args) => {
     .select(table.id, table.created_at)
     .where(table.user_id.equals(userSource.id))
     .order(table.created_at.asc)
-    .limit(first + 1);
+    .limit(first + 1); //extra row
 
   if (after) {
     // parse cursor
@@ -91,15 +91,15 @@ export const getPostIdsForUser = (userSource, args) => {
       .where(table.created_at.gt(after))
       .where(table.id.gt(id));
   }
-
+//execute database query:
   return database.getSql(query.toQuery()).then((allRows) => {
-    const rows = allRows.slice(0, first);
+    const rows = allRows.slice(0, first); //slicing cos of line 85
 
     rows.forEach((row) => {
-      row.__tableName = tables.posts.getName();
+      row.__tableName = tables.posts.getName();//__tableName needed for JOIN queries
       row.__cursor = row.id + ':' + row.created_at;
     });
-
+//rows are ready exec them to start the pageInfo object
     const hasNextPage = allRows.length > first;
     const hasPreviousPage = false;
 
@@ -112,7 +112,7 @@ export const getPostIdsForUser = (userSource, args) => {
       pageInfo.startCursor = rows[0].__cursor;
       pageInfo.endCursor = rows[rows.length - 1].__cursor;
     }
-
+//return rows and pageInfo to finish the loader, ready to run
     return { rows, pageInfo };
   });
 };

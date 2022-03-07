@@ -19,14 +19,16 @@ import * as loaders from './src/loaders';
 const RootQuery = new GraphQLObjectType({
   name: 'RootQuery',
   description: 'The root query',
-  fields: {
-    node: {
+  fields: { //Looking for user fragments on node fields. Checking
+//if fragments accesses friends field(y: run new loader. n: back original loader)
+//goto loaders.js line 48 
+node: {
       type: NodeInterface,
       args: {
         id: {
           type: new GraphQLNonNull(GraphQLID)
         }
-      },
+      },//2 more variables to resolve: context(authorization) and info(bag of objects)
       resolve(source, args, context, info) {
         let includeFriends = false;
 
@@ -52,7 +54,7 @@ const RootQuery = new GraphQLObjectType({
       }
     }
   }
-});
+}); 
 
 let inMemoryStore = {};
 const RootMutation = new GraphQLObjectType({

@@ -32,14 +32,14 @@ const RootQuery = new GraphQLObjectType({
        //goto line 87
         return loaders.getNodeById(context);
       }
-    },
+    },//node field resolve
     node: {
       type: NodeInterface,
       args: {
         id: {
           type: new GraphQLNonNull(GraphQLID)
         }
-      },
+      }, //removing logic added for performance optimization
       resolve(source, args, context, info) {
         return loaders.getNodeById(args.id);
       }

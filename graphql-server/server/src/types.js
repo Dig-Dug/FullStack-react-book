@@ -53,9 +53,11 @@ export const UserType = new GraphQLObjectType({
       },
       name: { type: new GraphQLNonNull(GraphQLString) },
       about: { type: new GraphQLNonNull(GraphQLString) },
+     //Add new friends field returning GraphQLList of IDs
       friends: {
         type: new GraphQLList(UserType),
-        resolve(source) {
+        resolve(source) { //invoking new loader(imported earlier)
+          //goto loaders_1.js line 25
           return loaders.getFriendIdsForUser(source).then((rows) => {
             const promises = rows.map((row) => {
               const friendNodeId = tables.dbIdToNodeId(row.user_id_b, row.__tableName);
@@ -64,7 +66,7 @@ export const UserType = new GraphQLObjectType({
             return Promise.all(promises);
           })
         }
-      },
+      }, 
       posts: {
         type: PostsConnectionType,
         args: {

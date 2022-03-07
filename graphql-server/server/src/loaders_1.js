@@ -22,7 +22,7 @@ export const getNodeById = (nodeId) => {
     return rows[0];
   });
 };
-
+//Here
 export const getFriendIdsForUser = (userSource) => {
   const table = tables.usersFriends;
   const query = table

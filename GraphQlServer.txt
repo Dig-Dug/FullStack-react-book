@@ -32,7 +32,35 @@ Schema Design---------------------------------------------------------------
 
 
 Lists-------------------------------------------------------------------------
-pg 646
+goto types.js line 56
+
+Perfomance: look-ahead optimizations.----------------------------------------
+goto server_friends_ids_efficient.js line 22.
+
+
+Lists Continued-------------------------------------------------------------------------
+right now we have a list of friends ids. We need to get a list of their
+full User types. Goto server.js line 42
+
+Connections..-------------------------------------------------------------------------
+instead of lists, return chunks of fields.
+goto types_permissions.js line 33
+
+using cursors for pagination prevents all kind of frontend bugs and
+constant updates, helps with Relay´s leverage.
+
+Authentication-------------------------------------------------------------------------
+-posts friends privacy
+https://en.wikipedia.org/wiki/Basic_access_authentication
+options: cookies, JSON web tokens, OAuth.
+in example NodeJs server/express and basicAuth imports.
+check server_auth.js line 66.
+
+Authorization-------------------------------------------------------------------------
+
+ 
+
+pg 662
 
 
 

@@ -1,4 +1,4 @@
-import {
+import { //import more types from graphQl library
   GraphQLInterfaceType,
   GraphQLObjectType,
   GraphQLID,
@@ -30,7 +30,8 @@ export const NodeInterface = new GraphQLInterfaceType({
 const resolveId = (source) => {
   return tables.dbIdToNodeId(source.id, source.__tableName);
 };
-
+//Define PageInfo, PostEdge and PostsConnection types. UserType needs to
+//be hooked up to new created types and make post fields line 102 
 const PageInfoType = new GraphQLObjectType({
   name: 'PageInfo',
   fields: {
@@ -98,7 +99,7 @@ export const UserType = new GraphQLObjectType({
             return Promise.all(promises);
           })
         }
-      },
+      }, //there are other ways of doing this
       posts: {
         type: PostsConnectionType,
         args: {
@@ -110,6 +111,7 @@ export const UserType = new GraphQLObjectType({
           },
         },
         resolve(source, args, context) {
+          //new loader method pass args to resolver goto loaders.js line 111
           return loaders.getPostIdsForUser(source, args, context).then(({ rows, pageInfo }) => {
             const promises = rows.map((row) => {
               const postNodeId = tables.dbIdToNodeId(row.id, row.__tableName);
@@ -123,7 +125,8 @@ export const UserType = new GraphQLObjectType({
             });
 
             return Promise.all(promises).then((edges) => {
-              return {
+              return { //now returns a PostsConnectionType(object with
+                //edges and pageInfo keys)
                 edges,
                 pageInfo
               }

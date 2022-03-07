@@ -63,7 +63,7 @@ const Schema = new GraphQLSchema({
   query: RootQuery,
   mutation: RootMutation,
 });
-
+//app.use used by Express in specified order
 app.use(basicAuth(function(user, pass) {
   return user === 'harry' && pass === 'mypassword1';
 }));
