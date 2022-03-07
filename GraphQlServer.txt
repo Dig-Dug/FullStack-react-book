@@ -57,10 +57,27 @@ in example NodeJs server/express and basicAuth imports.
 check server_auth.js line 66.
 
 Authorization-------------------------------------------------------------------------
+request.user property forward to GraphQl resolver --> server.js line 103
+add viewer field --> server.js line 28
+load each post from db before use, adding select arguments --> loaders.js line 120
 
+Rich Mutations-------------------------------------------------------------------------
+changing data from server. 
+example new post(string,body ,friendship privacy level)
+server.js line 49
+
+Relay and GraphQL-------------------------------------------------------------------------
+lightweight GraphQL server https://github.com/graphql/graphql-relay-js
+goto types_scalar.js line 26
  
+library to create loaders(oblects for batching data fetching)
+https://github.com/graphql/dataloader
 
-pg 662
+https://github.com/rmosolgo/graphql-ruby
+https://github.com/graphql-python/graphene
+https://github.com/sangria-graphql/sangria
+https://www.apollographql.com/docs/
+https://github.com/RisingStack/graffiti-mongoose
 
 
 
@@ -70,6 +87,9 @@ pg 662
 
 
 
-pg 621
+
+
+
+ pg 676
 
 

@@ -46,7 +46,9 @@ const RootQuery = new GraphQLObjectType({
     }
   }
 });
-
+//args and types for creating new post
+//instantiate a new kinf of object "GraphQLEnumType" <- ALL_CAPS
+//use enum in args props
 const LevelEnum = new GraphQLEnumType({
   name: 'PrivacyLevel',
   values: {
@@ -69,13 +71,14 @@ const RootMutation = new GraphQLObjectType({
   name: 'RootMutation',
   description: 'The root mutation',
   fields: {
-    createPost: {
+    createPost: { //type PostType, post functions now delegated to
+      //createPost <-- loaders.js line 169
       type: PostType,
       args: {
         body: {
           type: new GraphQLNonNull(GraphQLString)
         },
-        level: {
+        level: {  //enum use
           type: new GraphQLNonNull(LevelEnum),
         }
       },

@@ -23,7 +23,7 @@ export const NodeInterface = new GraphQLInterfaceType({
     return PostType;
   }
 });
-
+//
 const resolveId = (source) => {
   return tables.dbIdToNodeId(source.id, source.__tableName);
 };

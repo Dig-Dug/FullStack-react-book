@@ -83,7 +83,7 @@ export const getUserNodeWithFriends = (nodeId) => {
     return source;
   });
 };
-
+//similar to any other querie
 const getFriendshipLevels = (nodeId) => {
   const { dbId } = tables.splitNodeId(nodeId);
 
@@ -95,12 +95,14 @@ const getFriendshipLevels = (nodeId) => {
   return database.getSql(query.toQuery()).then((rows) => {
     const levelMap = {};
     rows.forEach((row) => {
+      //transform array of rows in object
       levelMap[row.user_id_b] = row.level;
     });
     return levelMap;
   });
 };
-
+//privacy settings are totally linear, settings are array
+//using indices for comparison
 const canAccessLevel = (viewerLevel, contentLevel) => {
   const levels = ['public', 'acquaintance', 'friend', 'top'];
   const viewerLevelIndex = levels.indexOf(viewerLevel);
@@ -132,7 +134,8 @@ export const getPostIdsForUser = (userSource, args, context) => {
       .where(table.created_at.gt(after))
       .where(table.id.gt(id));
   }
-
+//run another query, get all of user levels 
+//canAccessLevel(line 103) & getFriendshipLevels(line 86) need to be implemented
   return Promise.all([
     database.getSql(query.toQuery()),
     getFriendshipLevels(context)
@@ -163,7 +166,7 @@ export const getPostIdsForUser = (userSource, args, context) => {
     return { rows, pageInfo };
   });
 };
-
+//Lol
 export const createPost = (body, level, context) => {
   const { dbId } = tables.splitNodeId(context);
   const created_at = new Date().toISOString().split('T')[0];
