@@ -1,0 +1,40 @@
+Relay´s library to connect React components to a API server.
+glue beetwen GraphQL and React.
+check pics relay.png
+
+docs: https://relay.dev/
+
+Relay is Data Architecture----------------------------- 
+   .GraphQl server defines schemas and queries
+   .Relay defines conventions on top of GraphQL:
+     -fetch object by id
+     -traverse relationships between objects("connection")
+     -changing data with mutations
+
+Changing data with mutations-----------------------------
+    .locate mutation to call
+    .specify input arguments
+    .specify returned data after mutation
+
+
+goto bookstore/client/src/steps/index.minimal.js
+goto bookstore/client/src/steps/AuthorPage.minimal.js
+
+
+.components that need to load data from Relay are called containers.
+.containers(queries(dataToRender(Fragments))) <= Relay.createContainer.
+
+
+Building the schema.json---------------------------------
+ check bookstore/tools/update-schema.js
+
+
+Setting up Routing.---------------------------------------
+pg 704
+
+
+
+
+
+
+pg 676
