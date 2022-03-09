@@ -9,7 +9,7 @@ import FancyBook from './FancyBook';
 import '../styles/BookPage.css';
 
 class BookPage extends React.Component {
-  renderAuthor(authorEdge) {
+  renderAuthor(authorEdge) {  //renderAuthor function
     return (
       <Link
         key={authorEdge.node._id}
@@ -29,7 +29,7 @@ class BookPage extends React.Component {
       </Link>
     );
   }
-
+//semantic UI classes. For each author edge call renderAuthor()
   render() {
     const { book } = this.props;
     const authors = book.authors.edges.map(this.renderAuthor);
@@ -74,7 +74,7 @@ class BookPage extends React.Component {
   }
 
 }
-
+//fragment loading Book metadata check render() up
 export default Relay.createContainer(BookPage, {
   fragments: {
     book: () => Relay.QL`

@@ -4,7 +4,7 @@ import Relay from 'react-relay';
 import Link from 'react-router/lib/Link';
 
 import BookItem from './BookItem';
-
+//this.props.viewer.books.edges <- calling renderBook on each edge
 class BooksPage extends React.Component {
   render() {
     const books = this.props.viewer.books.edges.map(this.renderBook);
@@ -18,7 +18,7 @@ class BooksPage extends React.Component {
       </div>
     );
   }
-
+//rendering a Link with a BookItem(a book found in bookEdge.node) component
   renderBook(bookEdge) {
     return (
       <Link
@@ -35,10 +35,11 @@ class BooksPage extends React.Component {
 }
 
 export default Relay.createContainer(BooksPage, {
-  initialVariables: {
-    count: 100,
+  initialVariables: { //initialVariables(setting vars for queries)
+    count: 100, //telling Relay to count to 100(first 100 books(too much
+    //cos Relay deals for larger apps))
   },
-  fragments: {
+  fragments: { //getFragment(cos of child´s fragment(queries parts) embedding)
     viewer: () => Relay.QL`
     fragment on Viewer {
       books(first: $count) {

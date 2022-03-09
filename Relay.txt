@@ -30,6 +30,76 @@ Building the schema.json---------------------------------
 
 
 Setting up Routing.---------------------------------------
+https://github.com/remix-run/react-router
+
+react-router-relay reads params from URL and passes as params to queries-
+
+see bookstore/client/src/index.js
+
+Adding Relay to our routes--------------------------------
+
+see bookstore/client/src/steps/routes.author.js
+
+App Component--------------------------------------------
+see bookstore/client/src/components/App.js
+
+AuthorQueries Component----------------------------------
+see bookstore/client/src/steps/routes.author.js
+
+AuthorPage Component-------------------------------------
+see bookstore/client/src/steps/AuthorPage.minimal.js
+
+book page 708.
+
+AuthorPage with Styles-----------------------------------
+https://semantic-ui.com/
+
+see bookstore/client/src/steps/AuthorPage.styled.js
+
+BooksPage Route------------------------------------------
+
+see bookstore/client/src/routes.js line 34
+
+BooksPage Component----------------------------------
+check pic relay2.png
+specify fragment on key viewer query.
+see bookstore/client/src/components/BooksPage.js
+
+BookItem ..---------------------------------------------
+ bookstore/client/src/components/BookItem.js
+
+Frament Value Masking----------------------------------
+explicit data sharing between components, otherwise Relay hides it.
+Data masking: each component should define its own set of data-
+
+Improving Author´s page and Requesting author´s books--------
+ bookstore/client/src/components/AuthorPage.js line 70
+
+Changing Data with Mutations--------------------------------
+
+see bookstore/client/src/steps/BooksPage.reads.js pg 77
+
+Book Page editing-----------------------------------------
+https://github.com/kaivi/riek
+click on any field like title and edit.
+
+see bookstore/client/src/steps/BooksPage.iek.reads.
+
+
+Mutations-----------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 pg 704
 
 

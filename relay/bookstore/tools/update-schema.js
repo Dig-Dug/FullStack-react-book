@@ -1,3 +1,5 @@
+//relay library not involved, all is graphql(conforming to
+//relay´s standars)
 import fs from 'fs';
 import path from 'path';
 import { graphql } from 'graphql';

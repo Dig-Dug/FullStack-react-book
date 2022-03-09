@@ -67,9 +67,9 @@ class AuthorPage extends React.Component {
   }
 
 }
-
+//books() sections populated with needed data(better that traditional REST)
 export default Relay.createContainer(AuthorPage, {
-  fragments: {
+  fragments: { //parent query is author
     author: () => Relay.QL`
     fragment on Author { 
       _id

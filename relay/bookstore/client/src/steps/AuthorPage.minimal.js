@@ -24,6 +24,8 @@ class AuthorPage extends React.Component {
   }
 }
 //Writing a fragment
+//key names must match key names of queries(author(in AuthorQueries))
+//fragment key name must also be author(in AuthorPage fragments)
 export default Relay.createContainer(AuthorPage, {
   fragments: {
     author: () => Relay.QL`

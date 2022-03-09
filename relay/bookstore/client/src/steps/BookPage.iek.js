@@ -4,6 +4,10 @@ import Relay from 'react-relay';
 import Link from 'react-router/lib/Link';
 import { RIEInput, RIETextArea } from 'riek';
 
+
+//3 new components using RIEInput and RIETextArea. All of
+//them will call handleBookChange when data changes.
+
 import BookItem from './BookItem';
 import FancyBook from './FancyBook';
 
@@ -35,7 +39,7 @@ class BookPage extends React.Component {
       </Link>
     );
   }
-
+//implementation of handleBookChange
   handleBookChange(newState) {
     console.log('bookChanged', newState, this.props.book);
   }

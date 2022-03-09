@@ -4,7 +4,8 @@ import { withRouter } from 'react-router';
 
 import TopBar from './TopBar';
 import '../styles/App.css';
-
+//before exporting App, wrap it using "witRouter" <- helper function
+//Relay data not needed otherwise make App component a Relay container
 class App extends React.Component {
   render() {
     return (
