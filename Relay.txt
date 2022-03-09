@@ -86,8 +86,28 @@ click on any field like title and edit.
 see bookstore/client/src/steps/BooksPage.iek.reads.
 
 
-Mutations-----------------------------------------------
-pg 732
+Mutations(5 types in Relay)-----------------------------------------------
+ .define mutation object
+ .instantiate object with config vars
+ .send it with Relay.Store.commitUpdate
+
+ https://relay.dev/docs/guided-tour/updating-data/graphql-mutations/
+
+ see bookstore/client/src/mutations/UpdateBookMutation.js
+
+Inline Editing-----------------------------------------------
+Just like a child Relay needs its fragments composed so does mutations.
+bookstore/client/src/components/BookPage.js pg 112
+
+
+Useful links:
+https://www.howtographql.com/
+https://github.com/facebookarchive/relay-starter-kit
+https://github.com/taion/relay-todomvc
+https://github.com/relay-tools/react-router-relay
+https://www.apollographql.com/blog/backend/auth/a-guide-to-authentication-in-graphql/#.z0vnf3846
+https://speakerdeck.com/wincent/relay-2-simpler-faster-more-predictable
+
 
 
 

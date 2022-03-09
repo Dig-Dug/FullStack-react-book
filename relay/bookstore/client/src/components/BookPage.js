@@ -36,18 +36,18 @@ class BookPage extends React.Component {
       </Link>
     );
   }
-
+//this.props.book object merging
   handleBookChange(newState) {
     console.log('bookChanged', newState, this.props.book);
     const book = Object.assign({}, this.props.book, newState);
-    Relay.Store.commitUpdate(
-      new UpdateBookMutation({
+    Relay.Store.commitUpdate( //mutation exec
+      new UpdateBookMutation({ //passing mutation
         id: book.id,
         name: book.name,
         tagline: book.tagline,
         description: book.description,
         book: this.props.book,
-      })
+      }) //relay will use optimistic response 
     );
   }
 
@@ -109,7 +109,7 @@ class BookPage extends React.Component {
   }
 
 }
-
+//fragment check handleBookChange() function
 export default Relay.createContainer(BookPage, {
   fragments: {
     book: () => Relay.QL`

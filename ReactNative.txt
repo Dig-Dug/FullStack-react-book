@@ -1,0 +1,30 @@
+React native-----------------------
+https://reactnative.dev/docs/getting-started
+Init;.............:
+bootstrap app: 
+    1. npm i -g react-native-cli02.0.1
+    2. react-native init Playground
+
+Routing..------------------------------
+mapping url to a particular UI
+routing in native is more like layers(array stack[push,pop]) instead of url mappings
+route stack check: routeStack.png
+in iOS:
+    right to left(pop), left to right(push), bottom to top
+
+
+<Navigator /> <-component, 2 props( //called everytime a route changes
+    configureScene("which UI to render?") &
+    renderScene("which transtion type?")
+)
+
+check: routeStack.png pictures
+
+to know on which platform is the app running:
+import { Platform } from 'react-native';
+Platform: has OS prop which shows the platform on which the app is running.
+'ios' or 'android'
+
+Web components vs. native components----------------
+
+pg 753
