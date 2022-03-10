@@ -26,5 +26,47 @@ Platform: has OS prop which shows the platform on which the app is running.
 'ios' or 'android'
 
 Web components vs. native components----------------
+-in native html tags dont exist.
+List of components that you probably will need:
+    https://js.coach/?collection=React+Native
 
-pg 753
+<View/> = <div>, <Text/>, <Image/>, <TextInput/> <= prop.onChangeText()
+Press(onPress()) Events:
+   <TouchableHighlight/>, <TouchableOpacity/>, <TouchableWithoutFeedback/>
+
+<ActivityIndicator/> : valid for all systems
+
+for long lists of info <ListView/> is more proper
+<ListView/> ---------------------------------------------
+ .needs shouldComponentUpdate() hook to keep state,
+ a *ListView.Datasource instance and a
+ *renderRow() function defined in component.
+
+ check --> react-native/native-examples/twitter-listview.js
+
+
+Immutable Data-----------------------------------------
+Styles-----------------------------------------------
+ .the prop style inside tags, normal css 
+ .for multiple styles export StyleSheet(create function()) helper object
+ which is faster and better read.
+
+StyleSheet--------------------------------------------
+bsp: const style = StyleSheet.create({"css here"})   
+render(){<View ....., stlye.container}>
+
+Flexbox(React´s own version)-----------------------------------------------
+parent flex contained, children flex items.
+check flexbox.png
+row is x, column is y by default(changeable)
+
+import { StyleSheet, View, Text } from 'react-native';
+
+https://reactnative.dev/docs/flexbox
+check "justifyContent" options.
+check "alignItems" options.
+check "flexDirection" options.
+
+
+Http requests-----------------------------------------
+pg 784
