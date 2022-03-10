@@ -8,7 +8,7 @@ import BooksPage from './components/BooksPage';
 import BookPage from './components/BookPage';
 import AuthorPage from './components/AuthorPage';
 
-const ViewerQueries = {
+const ViewerQueries = { //viewer("current app user") node for looking list of books
   viewer: () => Relay.QL`query { viewer }`,
 };
 
@@ -31,7 +31,7 @@ export default (
     path='/'
     component={App}
   >
-    <IndexRoute
+    <IndexRoute //IndexRoute helper to define route check line 11.
       component={BooksPage}
       queries={ViewerQueries}
     />

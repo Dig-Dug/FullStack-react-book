@@ -1,0 +1,15 @@
+PropTypes-.---------------------------
+way of validating and naming value props. Needs install and import,
+
+see appendix/proptypes/Component.js
+
+page 795--
+Validators.-----------------------------
+check validators.png
+see appendix/proptypes/ALLLLLLL!!!
+
+ES6------------------------------
+see appendix/es6/ALLLLLLL!!!
+see webpack/es6-modules
+
+https://hacks.mozilla.org/2015/08/es6-in-depth-modules/

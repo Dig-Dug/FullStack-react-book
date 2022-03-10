@@ -69,4 +69,20 @@ check "flexDirection" options.
 
 
 Http requests-----------------------------------------
+fetch API like axios or _XMLHttpRequest. 
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+Promise-----------------------------------------------
+wrapper async function that may(resolved) or not(rejected) be called
+or still(pending).
+
+fetch: needs url(resolved:rejected?) = return response
+
+Debugging with React Native-----------------------------------------
+///
+Community:
+https://www.meetup.com/de-DE/topics/react-native/
+https://www.npmjs.com/search?q=react-native
+
+
 pg 784

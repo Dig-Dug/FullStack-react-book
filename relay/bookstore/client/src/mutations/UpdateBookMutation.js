@@ -37,7 +37,7 @@ export default class UpdateBookMutation extends Relay.Mutation {
       }
     `;
   }
-
+//several ways of data mutating, description of data handling
   getConfigs() {
     return [ {
       type: 'FIELDS_CHANGE',

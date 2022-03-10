@@ -15,13 +15,13 @@ import './styles/index.css';
 // Customize this based on your server's URL
 const graphQLUrl = 'http://localhost:3001/graphql';
 
-// Configure Relay with a "NetworkLayer"
+// Configure Relay with a "NetworkLayer" <-http requests
 Relay.injectNetworkLayer(
   new Relay.DefaultNetworkLayer(graphQLUrl)
 );
 
 const history = useRouterHistory(createHashHistory)({ queryKey: false });
-
+//applyRouterMiddleware + Relay.store = tie Router to Relay
 ReactDOM.render(
   <Router
     history={history}
